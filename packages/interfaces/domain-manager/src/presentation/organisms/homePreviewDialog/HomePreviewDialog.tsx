@@ -13,6 +13,8 @@ import { Icon } from '@falcon/icons'
 import type { ScreenSizeLayout } from '@domain/configs'
 
 import { useHomeConfig } from '../../../data/hooks/useHomeConfig'
+import { useDomainProperties } from '../../../data/hooks/useDomainProperties'
+import { previewThemeFromDomainColorSchemes } from '../../../data/utils/previewTheme'
 import { PreviewSectionRouter } from '../layoutBuilder/PreviewSectionRouter'
 
 type DeviceMode = 'desktop' | 'tablet' | 'mobile'
@@ -74,6 +76,10 @@ const HomePreviewDialogContent = ({
   })
 
   const domainID = remoteConfig?.domainID
+  const { domainProperties } = useDomainProperties({ domainID: domainID ?? 0 })
+  const previewTheme = previewThemeFromDomainColorSchemes(
+    domainProperties.colorSchemes,
+  )
 
   const layout: ScreenSizeLayout | undefined = useMemo(() => {
     if (!homeConfig) return undefined
@@ -205,7 +211,7 @@ const HomePreviewDialogContent = ({
                     : undefined
                 }
               >
-                <div data-surface="dark" className="group">
+                <div data-surface={previewTheme} className="group">
                   <article
                     className={mergeClasses(
                       'text-homepage-fg flex h-[calc(100vh-250px)] w-full flex-col overflow-y-scroll p-4 [scrollbar-color:#525252_#262626] [scrollbar-width:thin]',

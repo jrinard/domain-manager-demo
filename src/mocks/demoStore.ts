@@ -44,6 +44,12 @@ export const DEMO_DOMAIN_IDS = new Set(DEMO_DOMAINS.map((d) => d.teamID))
 export const ACME_DEMO_DOMAIN_ID = 1001
 export const NORTHWIND_DEMO_DOMAIN_ID = 1002
 
+function getDemoColorSchemes(domainID: number) {
+  // Columbia Bank home is designed for light-mode tokens and backgrounds.
+  if (domainID === DEFAULT_DEMO_DOMAIN_ID) return 'light,dark' as const
+  return 'dark,light' as const
+}
+
 const DEMO_MEMBER = { memberID: 9001, memberName: 'Portfolio Demo User' }
 
 const daysAgo = (days: number) => {
@@ -399,7 +405,7 @@ export function getDemoDomain(domainID: number) {
       otherName: domain?.name ?? 'Demo Domain',
       loginDomainID: 'demo',
       defaultRoleID: 5,
-      colorSchemes: 'dark,light',
+      colorSchemes: getDemoColorSchemes(domainID),
       menuType: 'top,side',
     },
     session: getDemoSession(),
@@ -407,6 +413,7 @@ export function getDemoDomain(domainID: number) {
 }
 
 export function getDemoDomainUI(domainID: number) {
+  const colorSchemes = getDemoColorSchemes(domainID)
   return {
     domainUI: {
       domainID,
@@ -427,7 +434,7 @@ export function getDemoDomainUI(domainID: number) {
       taglineLabel: 'Demo',
       images: demoDomainImages(),
       keyValues: [
-        { teamID: domainID, uiKey: 'colorSchemes', uiValue: 'dark,light' },
+        { teamID: domainID, uiKey: 'colorSchemes', uiValue: colorSchemes },
         { teamID: domainID, uiKey: 'menuType', uiValue: 'top,side' },
       ],
     },

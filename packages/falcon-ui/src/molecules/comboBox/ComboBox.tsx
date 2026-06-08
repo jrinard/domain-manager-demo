@@ -246,7 +246,7 @@ const ComboBox = ({
                     {section.items.map((item, index) => (
                       <CommandItem
                         className={mergeClasses(
-                          'hover:bg-accent aria-selected:bg-accent w-full',
+                          'hover:bg-grayscale-600 aria-selected:bg-grayscale-600 w-full text-site-fg hover:text-site-fg aria-selected:text-site-fg',
                           item.value === `${props.value}`
                             ? 'text-primary aria-selected:text-primary'
                             : '',

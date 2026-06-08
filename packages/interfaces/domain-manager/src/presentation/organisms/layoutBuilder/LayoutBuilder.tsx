@@ -24,6 +24,8 @@ import {
 } from '../../../data/hooks/useEditableUIConfig'
 import { PreviewSectionRouter } from './PreviewSectionRouter'
 import { LayoutSectionCard } from './LayoutSectionCard'
+import { useDomainProperties } from '../../../data/hooks/useDomainProperties'
+import { previewThemeFromDomainColorSchemes } from '../../../data/utils/previewTheme'
 import _ from 'lodash'
 
 interface LayoutBuilderProps {
@@ -62,6 +64,9 @@ export const LayoutBuilder = ({
   const refetchUIConfig = activeHook.refetch
   const isSavingConfig = activeHook.isPending
   const effectiveDomainID = remoteUIConfig?.domainID ?? domainID ?? 0
+  const { domainProperties } = useDomainProperties({
+    domainID: effectiveDomainID,
+  })
 
   const homeConfigsQuery = useHomeConfigs({
     domainID: effectiveDomainID,
@@ -124,7 +129,18 @@ export const LayoutBuilder = ({
       )
   }, [])
 
-  const [previewModeDark, setPreviewModeDark] = useState(true)
+  const [previewModeDark, setPreviewModeDark] = useState(
+    () =>
+      previewThemeFromDomainColorSchemes(domainProperties.colorSchemes) ===
+      'dark',
+  )
+
+  React.useEffect(() => {
+    setPreviewModeDark(
+      previewThemeFromDomainColorSchemes(domainProperties.colorSchemes) ===
+        'dark',
+    )
+  }, [effectiveDomainID, domainProperties.colorSchemes])
   // For mastery, always use edit mode since preview isn't available because we are not using the home app for mastery
   const [viewMode, setViewMode] = useState<'edit' | 'preview'>(
     isMastery ? 'edit' : remoteUIConfig ? 'preview' : 'edit',
@@ -406,7 +422,10 @@ export const LayoutBuilder = ({
               })}
               style={backgroundImageStyles}
             >
-              <div data-surface="dark" className="group min-h-full">
+              <div
+                data-surface={previewModeDark ? 'dark' : 'light'}
+                className="group min-h-full"
+              >
                 <div
                   className="flex min-h-[520px] flex-col gap-2"
                   style={{
