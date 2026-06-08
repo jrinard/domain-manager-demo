@@ -1,6 +1,4 @@
 import { rest } from 'msw'
-import { MenuEndpointResponses } from '../../packages/tyto/lore/src/endpoints/Menu'
-import { RolesEndpointResponses } from '../../packages/tyto/lore/src/endpoints/Roles'
 import {
   DEFAULT_DEMO_DOMAIN_ID,
   getConfiguration,
@@ -15,6 +13,8 @@ import {
   updateConfigurationStatus,
   type ConfigType,
 } from './demoStore'
+import { getDemoMenuManageResponse, getDemoMenuResponse } from './demoMenu'
+import { getDemoRolesResponse } from './demoRoles'
 
 const successEnvelope = { error: { logID: -1, sts: 200, msg: 'ok', technical: '' } }
 
@@ -120,11 +120,15 @@ export const demoOverrideHandlers = [
   }),
 
   rest.get('/api/Roles', (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(RolesEndpointResponses.get.success()))
+    return res(ctx.status(200), ctx.json(getDemoRolesResponse()))
   }),
 
   rest.get('/api/Menu', (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(MenuEndpointResponses.get.success()))
+    return res(ctx.status(200), ctx.json(getDemoMenuResponse()))
+  }),
+
+  rest.get('/api/Menu/Manage', (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(getDemoMenuManageResponse()))
   }),
 
   // Catch unmocked API calls so the real network doesn't spin forever.

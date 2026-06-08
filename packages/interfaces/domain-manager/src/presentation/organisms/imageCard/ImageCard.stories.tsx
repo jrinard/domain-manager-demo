@@ -27,7 +27,7 @@ export const Present: Story = {
       <ImageCard
         title="Main Logo"
         description="Recommended Size: 1920x1080"
-        imageUrl="https://cherry.mocaworks.com/v2/domains/551/images/home_link.png"
+        imageUrl="/demo-assets/logos/logo-light.png"
         variety="dark"
         {...props}
       />

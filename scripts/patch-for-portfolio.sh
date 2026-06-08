@@ -169,3 +169,50 @@ elif [[ -f "$DIALOG_CONTENT" ]]; then
 fi
 
 echo "  → portfolio patches applied"
+
+LAYOUT_BG="$REPO_ROOT/packages/interfaces/domain-manager/src/presentation/organisms/layoutBuilder/LayoutBackground.tsx"
+MENU_FALLBACK="$REPO_ROOT/packages/interfaces/domain-manager/src/presentation/organisms/menuBuilder/MenuDataFallback.ts"
+
+if [[ -f "$LAYOUT_BG" ]] && grep -q 'cherry.mocaworks.com' "$LAYOUT_BG"; then
+  echo "  → patching LayoutBackground for local demo assets"
+  python3 - "$LAYOUT_BG" <<'PY'
+import sys
+from pathlib import Path
+path = Path(sys.argv[1])
+text = path.read_text()
+text = text.replace(
+    "// TODO Plan make additional background options package",
+    "// Portfolio demo: local presets in public/demo-assets/bg-images/",
+    1,
+)
+replacements = [
+    ("https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/PrismBg1-black.jpg", "/demo-assets/bg-images/PrismBg1-black.jpg"),
+    ("https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/PrismBg1-white.jpg", "/demo-assets/bg-images/PrismBg1-white.jpg"),
+    ("https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Purple_Top_Down.jpg", "/demo-assets/bg-images/Purple_Top_Down.jpg"),
+    ("https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Blue_Top_Down.jpg", "/demo-assets/bg-images/Blue_Top_Down.jpg"),
+    ("https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Red_Top_Down.jpg", "/demo-assets/bg-images/Red_Top_Down.jpg"),
+    ("https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Tryyb_Back.jpg", "/demo-assets/bg-images/Tryyb_Back.jpg"),
+]
+for old, new in replacements:
+    text = text.replace(old, new)
+path.write_text(text)
+PY
+elif [[ -f "$LAYOUT_BG" ]]; then
+  echo "  → LayoutBackground already uses local demo assets"
+fi
+
+if [[ -f "$MENU_FALLBACK" ]] && grep -q '/v2/domains/551/images/top-menu-icons/' "$MENU_FALLBACK"; then
+  echo "  → patching MenuDataFallback for local demo assets"
+  python3 - "$MENU_FALLBACK" <<'PY'
+import sys
+from pathlib import Path
+path = Path(sys.argv[1])
+text = path.read_text()
+text = text.replace("/v2/domains/1825957/images/top-menu-icons/External Link.png", "/demo-assets/menu-icons/external-link.png")
+text = text.replace("/v2/domains/551/images/top-menu-icons/small-icons/", "/demo-assets/menu-icons/small-icons/")
+text = text.replace("/v2/domains/551/images/top-menu-icons/", "/demo-assets/menu-icons/")
+path.write_text(text)
+PY
+elif [[ -f "$MENU_FALLBACK" ]]; then
+  echo "  → MenuDataFallback already uses local demo assets"
+fi

@@ -4,6 +4,7 @@ import {
   DEMO_MASTERY_CONFIG,
   DEMO_MENU_CONFIG,
 } from './fixtures/configBodies'
+import { demoAssets } from '../demo/demoAssetPaths'
 
 export type ConfigType = 'ocTRYYBSTART' | 'ocTRYYBTOPMENU' | 'ocMASTERYSTART'
 
@@ -26,6 +27,41 @@ export const DEMO_DOMAINS: DemoDomain[] = [
 const DEMO_MEMBER = { memberID: 9001, memberName: 'Portfolio Demo User' }
 
 const now = () => new Date().toISOString()
+
+function demoDomainImage(
+  imageName: string,
+  pathURL: string,
+  imageID: number,
+): DomainUI.Image {
+  return {
+    imageID,
+    aboutID: 0,
+    aboutType: '',
+    originalMimeType: pathURL.endsWith('.jpg') ? 'image/jpeg' : 'image/png',
+    height: 0,
+    width: 0,
+    length: 0,
+    originalSizeBytes: 0,
+    sequence: 1,
+    orientation: 'ocVOID',
+    originalMD5: '',
+    userDescription: '',
+    pathURL,
+    imageName,
+    originalName: imageName,
+    elementType: 'ocDOMAINUI',
+    imageType: 'ocIMAGE',
+    activeStatus: 'ocENABLED',
+  }
+}
+
+function demoDomainImages() {
+  return [
+    demoDomainImage('logo_link', demoAssets.logos.light, 90001),
+    demoDomainImage('logo_link_DARK', demoAssets.logos.dark, 90002),
+    demoDomainImage('logoImagePath', demoAssets.logos.light, 90003),
+  ]
+}
 
 function configBodyForType(configType: ConfigType): string {
   if (configType === 'ocTRYYBTOPMENU') {
@@ -257,7 +293,7 @@ export function getDemoSession() {
     domainID: DEFAULT_DEMO_DOMAIN_ID,
     timeOutMnts: 2160,
     onCourseURL: 'http://localhost:4400',
-    profileThumbPath: '',
+    profileThumbPath: demoAssets.profile.demoUser,
     teamRootID: DEFAULT_DEMO_DOMAIN_ID,
     roleID: 1,
     onlinePreference: 'ocAVAILABLE',
@@ -329,7 +365,7 @@ export function getDemoDomainUI(domainID: number) {
       contactEmail: 'demo@example.com',
       contactPhone: '',
       taglineLabel: 'Demo',
-      images: [],
+      images: demoDomainImages(),
       keyValues: [
         { teamID: domainID, uiKey: 'colorSchemes', uiValue: 'dark,light' },
         { teamID: domainID, uiKey: 'menuType', uiValue: 'top,side' },

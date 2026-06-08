@@ -31,38 +31,14 @@ interface ImageData {
   activeStatus: string
 }
 
-// TODO Plan make additional background options package
+// Portfolio demo: local presets in public/demo-assets/bg-images/
 const BACKGROUND_OPTIONS = [
-  {
-    id: 1,
-    name: 'Dark Prism',
-    path: 'https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/PrismBg1-black.jpg',
-  },
-  {
-    id: 2,
-    name: 'Light Prism',
-    path: 'https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/PrismBg1-white.jpg',
-  },
-  {
-    id: 3,
-    name: 'Purple Midnight',
-    path: 'https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Purple_Top_Down.jpg',
-  },
-  {
-    id: 4,
-    name: 'Blue Ocean',
-    path: 'https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Blue_Top_Down.jpg',
-  },
-  {
-    id: 5,
-    name: 'Red Star',
-    path: 'https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Red_Top_Down.jpg',
-  },
-  {
-    id: 6,
-    name: 'Tryyb Prism',
-    path: 'https://cherry.mocaworks.com/v2/domains/551/images/packages/bg-images/Tryyb_Back.jpg',
-  },
+  { id: 1, name: 'Dark Prism', path: '/demo-assets/bg-images/PrismBg1-black.jpg' },
+  { id: 2, name: 'Light Prism', path: '/demo-assets/bg-images/PrismBg1-white.jpg' },
+  { id: 3, name: 'Purple Midnight', path: '/demo-assets/bg-images/Purple_Top_Down.jpg' },
+  { id: 4, name: 'Blue Ocean', path: '/demo-assets/bg-images/Blue_Top_Down.jpg' },
+  { id: 5, name: 'Red Star', path: '/demo-assets/bg-images/Red_Top_Down.jpg' },
+  { id: 6, name: 'Tryyb Prism', path: '/demo-assets/bg-images/Tryyb_Back.jpg' },
 ]
 
 const getImagePath = (image: ImageData) => createFileURL(image.pathURL)

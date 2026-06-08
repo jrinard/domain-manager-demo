@@ -55,7 +55,7 @@ export const menuDataFallbackCV: MenuConfig = {
               title: 'Go To Training',
               asTitle: true,
               iconRightPath:
-                '/v2/domains/1825957/images/top-menu-icons/External Link.png',
+                '/demo-assets/menu-icons/external-link.png',
             },
             {
               type: 'menu-item',
@@ -63,14 +63,14 @@ export const menuDataFallbackCV: MenuConfig = {
               title: '10X Playbook',
               asTitle: true,
               iconRightPath:
-                '/v2/domains/1825957/images/top-menu-icons/External Link.png',
+                '/demo-assets/menu-icons/external-link.png',
             },
             {
               type: 'custom-tab',
               traitID: 807,
               asTitle: true,
               iconRightPath:
-                '/v2/domains/1825957/images/top-menu-icons/External Link.png',
+                '/demo-assets/menu-icons/external-link.png',
             },
             {
               traitID: 877,
@@ -267,7 +267,7 @@ export const menuDataFallbackCV: MenuConfig = {
             {
               asTitle: true,
               iconRightPath:
-                '/v2/domains/1825957/images/top-menu-icons/External Link.png',
+                '/demo-assets/menu-icons/external-link.png',
               traitID: 808,
               description: '',
               __NAME: 'Scale CRM',
@@ -276,7 +276,7 @@ export const menuDataFallbackCV: MenuConfig = {
             {
               asTitle: true,
               iconRightPath:
-                '/v2/domains/1825957/images/top-menu-icons/External Link.png',
+                '/demo-assets/menu-icons/external-link.png',
               traitID: 870,
               description: '',
               __NAME: 'Scale Training',
@@ -285,7 +285,7 @@ export const menuDataFallbackCV: MenuConfig = {
             {
               asTitle: true,
               iconRightPath:
-                '/v2/domains/1825957/images/top-menu-icons/External Link.png',
+                '/demo-assets/menu-icons/external-link.png',
               traitID: 632,
               description: '',
               __NAME: 'Hubspot',
@@ -438,19 +438,19 @@ export const menuDataFallbackCTTI: MenuConfig = {
   iconOverrides: {
     114: {
       functionID: 114,
-      iconPath: '/v2/domains/551/images/top-menu-icons/r3-logo.png',
-      iconPathLarge: '/v2/domains/551/images/top-menu-icons/CEO Icons_R3.png',
+      iconPath: '/demo-assets/menu-icons/r3-logo.png',
+      iconPathLarge: '/demo-assets/menu-icons/CEO Icons_R3.png',
     },
     118: {
       functionID: 118,
-      iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/PPF.png',
-      iconPathLarge: '/v2/domains/551/images/top-menu-icons/ppf-logo.png',
+      iconPath: '/demo-assets/menu-icons/small-icons/PPF.png',
+      iconPathLarge: '/demo-assets/menu-icons/ppf-logo.png',
     },
     24: {
       functionID: 24,
       iconPath:
-        '/v2/domains/551/images/top-menu-icons/small-icons/statistics.png',
-      iconPathLarge: '/v2/domains/551/images/top-menu-icons/Statistics.png',
+        '/demo-assets/menu-icons/small-icons/statistics.png',
+      iconPathLarge: '/demo-assets/menu-icons/Statistics.png',
     },
   } as any,
   topButtons: [
@@ -530,179 +530,179 @@ export const ICON_OVERRIDES: Record<
   '24': {
     functionID: 24,
     iconPath:
-      '/v2/domains/551/images/top-menu-icons/small-icons/statistics.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Statistics.png',
+      '/demo-assets/menu-icons/small-icons/statistics.png',
+    iconPathLarge: '/demo-assets/menu-icons/Statistics.png',
   },
   '37': {
     functionID: 37,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/CEO Icons_inbox.png',
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/inbox.png',
+    iconPathLarge: '/demo-assets/menu-icons/CEO Icons_inbox.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/inbox.png',
   },
   '48': {
     functionID: 48,
     iconPathLarge:
-      '/v2/domains/551/images/top-menu-icons/CEO Icons_library.png',
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/library.png',
+      '/demo-assets/menu-icons/CEO Icons_library.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/library.png',
   },
   '49': {
     functionID: 49,
-    iconPath: '/v2/domains/551/images/top-menu-icons/Team.png',
+    iconPath: '/demo-assets/menu-icons/Team.png',
     iconPathLarge:
-      '/v2/domains/551/images/top-menu-icons/CEO Icons_teamboards.png',
+      '/demo-assets/menu-icons/CEO Icons_teamboards.png',
   },
   '50': {
     functionID: 50,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/news.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/News.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/news.png',
+    iconPathLarge: '/demo-assets/menu-icons/News.png',
   },
   '51': {
     functionID: 51,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/search.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/search-2.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/search.png',
+    iconPathLarge: '/demo-assets/menu-icons/search-2.png',
   },
   '55': {
     functionID: 55,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/manage.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Manage.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/manage.png',
+    iconPathLarge: '/demo-assets/menu-icons/Manage.png',
   },
   '67': {
     functionID: 67,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/training.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/training.png',
     iconPathLarge:
-      '/v2/domains/551/images/top-menu-icons/CEO Icons_training.png',
+      '/demo-assets/menu-icons/CEO Icons_training.png',
   },
   '68': {
     functionID: 68,
     iconPath:
-      '/v2/domains/551/images/top-menu-icons/small-icons/statistics.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Statistics.png',
+      '/demo-assets/menu-icons/small-icons/statistics.png',
+    iconPathLarge: '/demo-assets/menu-icons/Statistics.png',
   },
   '73': {
     functionID: 73,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/to dos.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/CEO Icons_to do.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/to dos.png',
+    iconPathLarge: '/demo-assets/menu-icons/CEO Icons_to do.png',
   },
   '99': {
     functionID: 99,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/events.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/CEO Icons_events.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/events.png',
+    iconPathLarge: '/demo-assets/menu-icons/CEO Icons_events.png',
   },
   '101': {
     functionID: 101,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Bug.png',
+    iconPathLarge: '/demo-assets/menu-icons/Bug.png',
   },
   '107': {
     functionID: 107,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Team.png',
+    iconPathLarge: '/demo-assets/menu-icons/Team.png',
   },
   '114': {
     functionID: 114,
-    iconPath: '/v2/domains/551/images/top-menu-icons/r3-logo.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/CEO Icons_R3.png',
+    iconPath: '/demo-assets/menu-icons/r3-logo.png',
+    iconPathLarge: '/demo-assets/menu-icons/CEO Icons_R3.png',
   },
   '117': {
     functionID: 117,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/VCEP.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/VCEP-Editor.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/VCEP.png',
+    iconPathLarge: '/demo-assets/menu-icons/VCEP-Editor.png',
   },
   '118': {
     functionID: 118,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/PPF.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/ppf-logo.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/PPF.png',
+    iconPathLarge: '/demo-assets/menu-icons/ppf-logo.png',
   },
   '119': {
     functionID: 119,
     iconPath:
-      '/v2/domains/551/images/top-menu-icons/small-icons/10X Action Plan.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/10X.png',
+      '/demo-assets/menu-icons/small-icons/10X Action Plan.png',
+    iconPathLarge: '/demo-assets/menu-icons/10X.png',
   },
   '121': {
     functionID: 121,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Dashboard.png',
+    iconPathLarge: '/demo-assets/menu-icons/Dashboard.png',
   },
   '122': {
     functionID: 122,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/news.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/News.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/news.png',
+    iconPathLarge: '/demo-assets/menu-icons/News.png',
   },
   '123': {
     functionID: 123,
     iconPathLarge:
-      '/v2/domains/551/images/top-menu-icons/icon-security-role.png',
+      '/demo-assets/menu-icons/icon-security-role.png',
   },
   '124': {
     functionID: 124,
     iconPathLarge:
-      '/v2/domains/551/images/top-menu-icons/10X-Employee-Team-Plus.png',
+      '/demo-assets/menu-icons/10X-Employee-Team-Plus.png',
   },
   '125': {
     functionID: 125,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Ability-List.png',
+    iconPathLarge: '/demo-assets/menu-icons/Ability-List.png',
   },
   '126': {
     functionID: 126,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Event-Templates.png',
+    iconPathLarge: '/demo-assets/menu-icons/Event-Templates.png',
   },
   '127': {
     functionID: 127,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Courses.png',
+    iconPathLarge: '/demo-assets/menu-icons/Courses.png',
   },
   '128': {
     functionID: 128,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Credit-Types.png',
+    iconPathLarge: '/demo-assets/menu-icons/Credit-Types.png',
   },
   '129': {
     functionID: 129,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Plan-Templates.png',
+    iconPathLarge: '/demo-assets/menu-icons/Plan-Templates.png',
   },
   '130': {
     functionID: 130,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Catalog.png',
+    iconPathLarge: '/demo-assets/menu-icons/Catalog.png',
   },
   '131': {
     functionID: 131,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Catalog.png',
+    iconPathLarge: '/demo-assets/menu-icons/Catalog.png',
   },
   '132': {
     functionID: 132,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Category-Manager.png',
+    iconPathLarge: '/demo-assets/menu-icons/Category-Manager.png',
   },
   '133': {
     functionID: 133,
     // // href: '/v25/nl/#/exam-editor',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Exams.png',
+    iconPathLarge: '/demo-assets/menu-icons/Exams.png',
   },
   '134': {
     functionID: 134,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Surveys.png',
+    iconPathLarge: '/demo-assets/menu-icons/Surveys.png',
   },
   '135': {
     functionID: 135,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/TPA.png',
+    iconPathLarge: '/demo-assets/menu-icons/TPA.png',
   },
   '150': {
     functionID: 150,
-    iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/projects.png',
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/Projects.png',
+    iconPath: '/demo-assets/menu-icons/small-icons/projects.png',
+    iconPathLarge: '/demo-assets/menu-icons/Projects.png',
   },
   '155': {
     functionID: 155,
     iconPathLarge:
-      '/v2/domains/551/images/top-menu-icons/icon-service-request.png',
+      '/demo-assets/menu-icons/icon-service-request.png',
   },
   '156': {
     functionID: 156,
-    iconPathLarge: '/v2/domains/551/images/top-menu-icons/icon-playbook.png',
+    iconPathLarge: '/demo-assets/menu-icons/icon-playbook.png',
   },
   '161': {
     functionID: 161,
     iconPathLarge:
-      '/v2/domains/551/images/top-menu-icons/icon-restore-user.png',
+      '/demo-assets/menu-icons/icon-restore-user.png',
   },
   // // 'traitID=803': {
   // //   traitID: 803,
   // //   iconPathLarge:
-  // //     '/v2/domains/551/images/top-menu-icons/lightning-light-bulb-2.png',
+  // //     '/demo-assets/menu-icons/lightning-light-bulb-2.png',
   // // },
   // // 'traitID=900': {
   // //   traitID: 900,
@@ -719,7 +719,7 @@ export const ICON_OVERRIDES: Record<
   // // },
   // // 'traitID=947': {
   // //   traitID: 947,
-  // //   iconPath: '/v2/domains/551/images/top-menu-icons/small-icons/events.png',
-  // //   iconPathLarge: '/v2/domains/551/images/top-menu-icons/CEO Icons_events.png',
+  // //   iconPath: '/demo-assets/menu-icons/small-icons/events.png',
+  // //   iconPathLarge: '/demo-assets/menu-icons/CEO Icons_events.png',
   // // },
 }
