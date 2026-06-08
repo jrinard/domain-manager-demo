@@ -24,6 +24,8 @@ import { useScreenSize } from '@domain/ui'
 import useTeamFromURL from '../../data/hooks/useTeamFromURL'
 import { DOMAIN_MANAGER_PATHS } from '../../data/constants'
 
+const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
+
 interface TeamHeaderProps extends React.PropsWithChildren {
   teamID: number
 }
@@ -66,7 +68,7 @@ const TeamHeader = (props: TeamHeaderProps) => {
   const teamTabs = React.useMemo(() => {
     const tabs = [
       {
-        label: 'TRYYB',
+        label: IS_PORTFOLIO_DEMO ? 'HOME' : 'TRYYB',
         id: 'tryyb',
         to: `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/${props.teamID}/tryyb`,
         order: 1,

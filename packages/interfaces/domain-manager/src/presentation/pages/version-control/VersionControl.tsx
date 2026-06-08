@@ -19,19 +19,33 @@ import { DomainManagerConfigDialog } from '../../organisms/domainManagerConfigDi
 import { HomePreviewDialog } from '../../organisms/homePreviewDialog/HomePreviewDialog'
 import { MenuPreviewDialog } from '../../organisms/menuPreviewDialog/MenuPreviewDialog'
 
+type VersionControlPage =
+  | 'tryyb'
+  | 'menu'
+  | 'mastery'
+  | 'images'
+  | 'custom-names'
+  | 'r3'
+  | 'services'
+
+const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
+
+function pageSectionLabel(page: VersionControlPage): string {
+  if (IS_PORTFOLIO_DEMO && page === 'tryyb') return 'HOME'
+  return page.toUpperCase()
+}
+
+function pageSectionLabelClassName(page: VersionControlPage): string {
+  if (IS_PORTFOLIO_DEMO && page === 'tryyb') return 'text-primary mr-2'
+  return 'text-primary mr-2 capitalize'
+}
+
 interface VersionControlProps {
   isLoading: boolean
   liveData: any[]
   otherData: any[]
   contextID: number
-  page:
-    | 'tryyb'
-    | 'menu'
-    | 'mastery'
-    | 'images'
-    | 'custom-names'
-    | 'r3'
-    | 'services'
+  page: VersionControlPage
   canEdit: boolean
   refetch: () => void
   startVersion?: string
@@ -89,13 +103,19 @@ export const VersionControl = ({
 
   const startVersionOptions = [
     { value: 'Legacy', item: 'Legacy' },
-    { value: 'Home', item: 'Home' },
+    {
+      value: 'Home',
+      item: IS_PORTFOLIO_DEMO ? 'HOME' : 'Home',
+    },
   ]
   //TODO This represents a way to set the overall active theme, predicated on the idea of changing the whole set.
   const themeStyleOptions = [
     { value: 'Red/Black (CV)', item: 'Red/Black (CV)' },
     { value: 'Teal (Onpoint)', item: 'Teal (Onpoint)' },
-    { value: 'Orange/Black (Tryyb)', item: 'Orange/Black (Tryyb)' },
+    {
+      value: 'Orange/Black (Tryyb)',
+      item: IS_PORTFOLIO_DEMO ? 'Orange/Black' : 'Orange/Black (Tryyb)',
+    },
     { value: 'Custom from Theme Page', item: 'Custom from Theme Page' },
   ]
 
@@ -159,8 +179,8 @@ export const VersionControl = ({
         {(page === 'tryyb' || page === 'menu') && (
           <div className="mb-8 flex w-full flex-col gap-4 pr-2">
             <TextHeading size={3}>
-              <span className="text-primary mr-2 capitalize">
-                {page.toUpperCase()}
+              <span className={pageSectionLabelClassName(page)}>
+                {pageSectionLabel(page)}
               </span>
               General
             </TextHeading>
@@ -245,8 +265,8 @@ export const VersionControl = ({
 
         <div className="mb-8 flex w-full flex-col gap-3 pr-2">
           <TextHeading size={3}>
-            <span className="text-primary mr-2 capitalize">
-              {page.toUpperCase()}
+            <span className={pageSectionLabelClassName(page)}>
+              {pageSectionLabel(page)}
             </span>
             Version Control
           </TextHeading>

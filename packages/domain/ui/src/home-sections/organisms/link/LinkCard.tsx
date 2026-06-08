@@ -91,7 +91,8 @@ export interface LinkProps {
   mockMinWidthClass?: string
   target?: string
   variant?: 'stacked'
-  width?: 'auto' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'
+  /** When true, render as a non-clickable block (images/text only). */
+  staticDisplay?: boolean
 }
 
 const LinkCard = ({
@@ -109,9 +110,10 @@ const LinkCard = ({
   cardSize,
   inGrid,
   stretchWithRow,
+  staticDisplay,
   ...props
 }: LinkProps) => {
-  const Tag = props.disabled ? 'div' : props.isExternal ? 'a' : Link
+  const Tag = staticDisplay ? 'div' : props.disabled ? 'div' : props.isExternal ? 'a' : Link
   const TitleTag = variant === 'stacked' ? TextHeading : TextBody
 
   // Card mode: itemBgColor set (and not 'none')
@@ -136,6 +138,9 @@ const LinkCard = ({
     : mergeClasses('box-border', linkWidthVariants({ width }))
 
   const rowStretchClasses = stretchWithRow ? 'min-h-0 self-stretch' : undefined
+  const showTitleRow = staticDisplay
+    ? !!title?.trim() || !!titleRender
+    : true
 
   return (
     <Tag
@@ -164,6 +169,7 @@ const LinkCard = ({
         </div>
       ) : null}
 
+      {showTitleRow ? (
       <div
         className={mergeClasses(
           'flex w-full items-center',
@@ -196,6 +202,7 @@ const LinkCard = ({
           </div>
         )}
       </div>
+      ) : null}
     </Tag>
   )
 }

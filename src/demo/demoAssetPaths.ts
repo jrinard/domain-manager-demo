@@ -17,6 +17,10 @@ export const demoAssets = {
   profile: {
     demoUser: `${BASE}/profile/demo-user.jpg`,
   },
+  /** Home layout section images (featured content, backgrounds, etc.) */
+  section: (filename: string) => `${BASE}/sections/${filename}`,
+  columbiaLogo: `${BASE}/sections/demo-colu-logo.jpg`,
+  columbiaLogoLight: `${BASE}/sections/demo-colu-logo-light.png`,
   menuIcon: (filename: string) => `${BASE}/menu-icons/${filename}`,
   menuIconSmall: (filename: string) => `${BASE}/menu-icons/small-icons/${filename}`,
   traitIcon: (filename: string) => `${BASE}/trait-icons/${filename}`,
@@ -30,5 +34,5 @@ export const DEMO_BACKGROUND_OPTIONS = [
   { id: 3, name: 'Purple Midnight', path: demoAssets.bg.purpleTopDown },
   { id: 4, name: 'Blue Ocean', path: demoAssets.bg.blueTopDown },
   { id: 5, name: 'Red Star', path: demoAssets.bg.redTopDown },
-  { id: 6, name: 'Tryyb Prism', path: demoAssets.bg.tryybBack },
+  { id: 6, name: 'Prism', path: demoAssets.bg.tryybBack },
 ] as const

@@ -38,7 +38,7 @@ const BACKGROUND_OPTIONS = [
   { id: 3, name: 'Purple Midnight', path: '/demo-assets/bg-images/Purple_Top_Down.jpg' },
   { id: 4, name: 'Blue Ocean', path: '/demo-assets/bg-images/Blue_Top_Down.jpg' },
   { id: 5, name: 'Red Star', path: '/demo-assets/bg-images/Red_Top_Down.jpg' },
-  { id: 6, name: 'Tryyb Prism', path: '/demo-assets/bg-images/Tryyb_Back.jpg' },
+  { id: 6, name: 'Prism', path: '/demo-assets/bg-images/Tryyb_Back.jpg' },
 ]
 
 const getImagePath = (image: ImageData) => createFileURL(image.pathURL)

@@ -1,6 +1,6 @@
-import { getDemoSession } from './demoStore'
+import { DEFAULT_DEMO_DOMAIN_NAME, getDemoSession } from './demoStore'
 
-/** Portfolio demo Roles API — minimal list, no lore/Cherry. */
+/** Portfolio demo Roles API — minimal list. */
 export function getDemoRolesResponse() {
   return {
     roles: [
@@ -9,7 +9,7 @@ export function getDemoRolesResponse() {
         teamRoot: 551,
         roleName: 'Sys Admin',
         roleDesc: 'Portfolio demo administrator role.',
-        teamName: 'Cherry',
+        teamName: DEFAULT_DEMO_DOMAIN_NAME,
         iPath: ',',
         parentNamePath: '\t',
         domainID: 551,
@@ -22,7 +22,7 @@ export function getDemoRolesResponse() {
         teamRoot: 551,
         roleName: 'Company Admin',
         roleDesc: 'Portfolio demo company admin role.',
-        teamName: 'Cherry',
+        teamName: DEFAULT_DEMO_DOMAIN_NAME,
         iPath: ',',
         parentNamePath: '\t',
         domainID: 551,
@@ -35,7 +35,7 @@ export function getDemoRolesResponse() {
         teamRoot: 551,
         roleName: 'Manager',
         roleDesc: 'Portfolio demo manager role.',
-        teamName: 'Cherry',
+        teamName: DEFAULT_DEMO_DOMAIN_NAME,
         iPath: ',',
         parentNamePath: '\t',
         domainID: 551,

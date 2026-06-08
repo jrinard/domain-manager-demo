@@ -29,6 +29,8 @@ export interface AppLinkProps {
   parentAlignment?: string
   rounding?: string
   mockMinWidthClass?: string
+  /** Non-interactive display (e.g. external-link without a URL). */
+  staticDisplay?: boolean
 }
 
 export const AppLink = ({
@@ -52,6 +54,7 @@ export const AppLink = ({
   parentAlignment,
   rounding,
   mockMinWidthClass,
+  staticDisplay,
 }: AppLinkProps) => {
   const safeIconPath = iconPath || iconPathLarge
   const safeIconPathLarge = iconPathLarge || iconPath
@@ -87,7 +90,7 @@ export const AppLink = ({
   }
   return (
     <LinkCard
-      title={title || fallbackTitle}
+      title={staticDisplay ? title || '' : title || fallbackTitle}
       link={href}
       target={target}
       isExternal={isExternal}
@@ -119,6 +122,7 @@ export const AppLink = ({
       }
       mockMinWidthClass={mockMinWidthClass}
       disabled={disabled}
+      staticDisplay={staticDisplay}
       topRender={
         (iconDisplay === 'above' || iconDisplay === 'background') &&
         (safeIconPathLarge || disabled) ? (

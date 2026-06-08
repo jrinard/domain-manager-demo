@@ -37,7 +37,7 @@ interface DomainHeaderProps extends React.PropsWithChildren {
   teamID: number
 }
 
-/** Portfolio demo: only Tryyb / Menu / Mastery tabs; no wizard or create-domain flows. */
+/** Portfolio demo: only Home / Menu / Mastery tabs; no wizard or create-domain flows. */
 const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
 const PORTFOLIO_DEMO_TAB_IDS = new Set(['tryyb', 'menu', 'mastery'])
 
@@ -90,7 +90,7 @@ const DomainHeader = (props: DomainHeaderProps) => {
   const domainTabs = React.useMemo(() => {
     const tabs = [
       {
-        label: 'TRYYB',
+        label: IS_PORTFOLIO_DEMO ? 'HOME' : 'TRYYB',
         id: 'tryyb',
         to: `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/domain/${props.teamID}/tryyb`,
         order: 1,

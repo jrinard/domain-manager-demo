@@ -128,6 +128,104 @@ else
   echo "  → DomainHeader already patched for portfolio demo"
 fi
 
+if [[ -f "$HEADER" ]] && grep -q "label: 'TRYYB'" "$HEADER" && ! grep -q "IS_PORTFOLIO_DEMO ? 'HOME'" "$HEADER"; then
+  echo "  → patching DomainHeader Home tab label"
+  sed -i '' "s/label: 'TRYYB'/label: IS_PORTFOLIO_DEMO ? 'HOME' : 'TRYYB'/" "$HEADER"
+fi
+
+VERSION_CONTROL="$REPO_ROOT/packages/interfaces/domain-manager/src/presentation/pages/version-control/VersionControl.tsx"
+if [[ -f "$VERSION_CONTROL" ]] && ! grep -q 'function pageSectionLabel' "$VERSION_CONTROL"; then
+  echo "  → patching VersionControl Home section labels"
+  python3 - "$VERSION_CONTROL" <<'PY'
+import sys
+from pathlib import Path
+
+path = Path(sys.argv[1])
+text = path.read_text()
+
+demo_block = """
+type VersionControlPage =
+  | 'tryyb'
+  | 'menu'
+  | 'mastery'
+  | 'images'
+  | 'custom-names'
+  | 'r3'
+  | 'services'
+
+const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
+
+function pageSectionLabel(page: VersionControlPage): string {
+  if (IS_PORTFOLIO_DEMO && page === 'tryyb') return 'HOME'
+  return page.toUpperCase()
+}
+
+function pageSectionLabelClassName(page: VersionControlPage): string {
+  if (IS_PORTFOLIO_DEMO && page === 'tryyb') return 'text-primary mr-2'
+  return 'text-primary mr-2 capitalize'
+}
+
+interface VersionControlProps {
+"""
+
+needle = "interface VersionControlProps {"
+if needle not in text:
+    raise SystemExit("VersionControl structure changed — update patch-for-portfolio.sh")
+
+text = text.replace(needle, demo_block, 1)
+
+text = text.replace(
+    "  page:\n    | 'tryyb'\n    | 'menu'\n    | 'mastery'\n    | 'images'\n    | 'custom-names'\n    | 'r3'\n    | 'services'",
+    "  page: VersionControlPage",
+    1,
+)
+
+text = text.replace(
+    "{page.toUpperCase()}",
+    "{pageSectionLabel(page)}",
+)
+
+text = text.replace(
+    'className="text-primary mr-2 capitalize"',
+    'className={pageSectionLabelClassName(page)}',
+)
+
+text = text.replace(
+    "    { value: 'Home', item: 'Home' },",
+    "    {\n"
+    "      value: 'Home',\n"
+    "      item: IS_PORTFOLIO_DEMO ? 'HOME' : 'Home',\n"
+    "    },",
+    1,
+)
+
+text = text.replace(
+    "    { value: 'Orange/Black (Tryyb)', item: 'Orange/Black (Tryyb)' },",
+    "    {\n"
+    "      value: 'Orange/Black (Tryyb)',\n"
+    "      item: IS_PORTFOLIO_DEMO ? 'Orange/Black' : 'Orange/Black (Tryyb)',\n"
+    "    },",
+    1,
+)
+
+path.write_text(text)
+PY
+elif [[ -f "$VERSION_CONTROL" ]]; then
+  echo "  → VersionControl already patched for Home labels"
+fi
+
+TEAM_HEADER="$REPO_ROOT/packages/interfaces/domain-manager/src/presentation/layouts/TeamHeader.tsx"
+if [[ -f "$TEAM_HEADER" ]] && grep -q "label: 'TRYYB'" "$TEAM_HEADER" && ! grep -q "IS_PORTFOLIO_DEMO ? 'HOME'" "$TEAM_HEADER"; then
+  echo "  → patching TeamHeader Home tab label"
+  if ! grep -q 'IS_PORTFOLIO_DEMO' "$TEAM_HEADER"; then
+    sed -i '' "/import { DOMAIN_MANAGER_PATHS }/a\\
+\\
+const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
+" "$TEAM_HEADER"
+  fi
+  sed -i '' "s/label: 'TRYYB'/label: IS_PORTFOLIO_DEMO ? 'HOME' : 'TRYYB'/" "$TEAM_HEADER"
+fi
+
 if [[ -f "$FACTORY" ]] && ! grep -q 'Portfolio demo: no Nx workspace' "$FACTORY"; then
   echo "  → patching tailwind config-factory (remove Nx dependency)"
   python3 - "$FACTORY" <<'PY'

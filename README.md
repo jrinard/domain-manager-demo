@@ -29,7 +29,9 @@ pnpm install
 pnpm dev
 ```
 
-→ http://localhost:4400/domain-manager/domain/551/tryyb
+→ http://localhost:4400/domain-manager/domain/551/tryyb (Home tab)
+
+The URL path still uses `tryyb` internally; the UI labels that tab **Home**.
 
 ## Versions
 
@@ -46,14 +48,14 @@ pnpm dev
 
 ## Technical summary
 
-React 18 SPA built with Vite and TypeScript. Styling uses Tailwind CSS and Radix UI primitives. Data fetching goes through TanStack Query; API calls are mocked in the browser with MSW (no backend required). The Domain Manager UI lives under `packages/interfaces/domain-manager/` and is wired into a thin demo shell in `src/`. React Router handles tab and domain routing. The demo runs on port 4400 with in-memory mock data for multiple tenant domains.
+React 18 SPA built with Vite and TypeScript. Styling uses Tailwind CSS and Radix UI primitives. Data fetching goes through TanStack Query; API calls are mocked in the browser with MSW (no backend required). The Domain Manager UI lives under `packages/interfaces/domain-manager/` and is wired into a thin demo shell in `src/`. React Router handles tab and domain routing. The demo runs on port 4400 with in-memory mock data for **Columbia Bank** (domain 551).
 
 ## Reference
 
 - **[PLAN.md](./PLAN.md)** — architecture, sync workflow, demo domains, checklist, troubleshooting
 - **`src/`** — demo app, MSW mocks, providers (portfolio-only changes go here)
 - **`packages/`** — vendored Domain Manager UI from Spacedock (update via sync script, not hand-edited)
-- **Default domain:** 551 (Cherry) — mock data in `src/mocks/demoStore.ts`
+- **Default domain:** 551 (Columbia Bank) — mock data in `src/mocks/demoStore.ts`
 - **Out of scope:** Theme, Images, R3, uploads, new-domain wizard, real backend
 
 

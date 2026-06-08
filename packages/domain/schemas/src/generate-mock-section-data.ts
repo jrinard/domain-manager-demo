@@ -2,6 +2,9 @@ import type { z } from '@spacedock/data-validation'
 import type { HomeSectionType } from './types'
 import { getSectionSchema, getZodSchema } from './registry'
 
+/** Columbia Bank logo — matches DEMO_SECTION_IMAGE_IDS.columbiaLogo in portfolio demo mocks. */
+const PORTFOLIO_COLUMBIA_LOGO_IMAGE_ID = 91040
+
 /**
  * Generate mock/default data for a section based on its Zod schema
  * Uses default values from the schema where available, otherwise uses falsey values
@@ -16,6 +19,8 @@ export function generateMockSectionData(
     return {}
   }
 
+  let data: Record<string, unknown>
+
   // If there are sub_types, use the first one as default
   if (sectionSchema.sub_types) {
     const subTypeKeys = Object.keys(sectionSchema.sub_types)
@@ -24,20 +29,30 @@ export function generateMockSectionData(
       const zodSchema = getZodSchema(sectionType, defaultSubType)
 
       if (zodSchema) {
-        return generateDataFromZodSchema(zodSchema, {
+        data = generateDataFromZodSchema(zodSchema, {
           sub_type: defaultSubType,
         })
+      } else {
+        data = {}
       }
+    } else {
+      data = {}
+    }
+  } else {
+    // No sub_types, use the main schema
+    const zodSchema = getZodSchema(sectionType)
+    data = zodSchema ? generateDataFromZodSchema(zodSchema) : {}
+  }
+
+  if (sectionType === 'logo-and-button') {
+    return {
+      ...data,
+      logoOverride: PORTFOLIO_COLUMBIA_LOGO_IMAGE_ID,
+      logoAlt: 'Columbia Bank',
     }
   }
 
-  // No sub_types, use the main schema
-  const zodSchema = getZodSchema(sectionType)
-  if (zodSchema) {
-    return generateDataFromZodSchema(zodSchema)
-  }
-
-  return {}
+  return data
 }
 
 /**

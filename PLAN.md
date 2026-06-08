@@ -37,7 +37,7 @@ domain-manager-portfolio/          ← own git repo
 
 | ID   | Name               |
 |------|--------------------|
-| 551  | Cherry (default)   |
+| 551  | Columbia Bank (default) |
 | 1001 | Acme Learning Co.  |
 | 1002 | Northwind Academy  |
 | 1003 | Contoso Training   |

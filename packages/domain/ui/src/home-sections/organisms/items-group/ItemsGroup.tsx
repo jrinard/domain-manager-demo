@@ -114,6 +114,7 @@ export const ItemsGroup = ({
     <HomeSectionWrapper<ItemsGroupSectionData>
       section={section}
       fallbackLayoutPosition={{ columnSpan: 'full' }}
+      attachments={attachments}
       padding={section.metadata.padding ?? 'none'}
     >
       <div className={containerClasses}>

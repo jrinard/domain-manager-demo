@@ -52,6 +52,13 @@ export const LinkDataWrapper = ({
       '',
   )
 
+  const externalUrl =
+    sectionData?.sub_type === 'external-link'
+      ? externalLinkSafeProperty(sectionData, 'url')
+      : ''
+  const isDecorativeExternal =
+    sectionData?.sub_type === 'external-link' && !externalUrl?.trim()
+
   if (!sectionData) {
     return null
   }
@@ -70,8 +77,9 @@ export const LinkDataWrapper = ({
   // Mock, prod, and error modes all render the same
   return (
     <AppLink
-      isExternal={sectionData.sub_type === 'external-link'}
-      href={safeDestinationPath}
+      isExternal={!isDecorativeExternal && sectionData.sub_type === 'external-link'}
+      href={isDecorativeExternal ? '' : safeDestinationPath}
+      staticDisplay={isDecorativeExternal}
       title={
         metadata?.display_name ||
         sectionData?.textOverride ||
