@@ -5,6 +5,8 @@ Customers are organized into **domains**, each with its own white-labeled experi
 
 This repo is a trimmed-down copy of that interface, extracted from a larger monorepo to showcase my UI design and front-end development work. Domain Manager was an Epic I owned end to end — I managed sprint tickets, kept the project moving, and did the design and front-end build. Other developers handled shared dependencies, backend endpoints, and supporting code, but the bulk of the work was mine.
 
+<img width="1766" height="1021" alt="DM" src="https://github.com/user-attachments/assets/28b1f2b7-5a53-4390-b9e5-56a4a37ca081" />
+
 ## Setup
 
 Run these in the terminal:
@@ -53,3 +55,8 @@ React 18 SPA built with Vite and TypeScript. Styling uses Tailwind CSS and Radix
 - **`packages/`** — vendored Domain Manager UI from Spacedock (update via sync script, not hand-edited)
 - **Default domain:** 551 (Cherry) — mock data in `src/mocks/demoStore.ts`
 - **Out of scope:** Theme, Images, R3, uploads, new-domain wizard, real backend
+
+
+
+
+
