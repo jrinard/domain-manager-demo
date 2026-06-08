@@ -5,7 +5,10 @@ Customers are organized into **domains**, each with its own white-labeled experi
 
 This repo is a trimmed-down copy of that interface, extracted from a larger monorepo to showcase my UI design and front-end development work. Domain Manager was an Epic I owned end to end — I managed sprint tickets, kept the project moving, and did the design and front-end build. Other developers handled shared dependencies, backend endpoints, and supporting code, but the bulk of the work was mine.
 
-<img width="1766" height="1021" alt="DM" src="https://github.com/user-attachments/assets/28b1f2b7-5a53-4390-b9e5-56a4a37ca081" />
+<img width="1622" height="1142" alt="demo-home" src="https://github.com/user-attachments/assets/5171a7de-496d-4e62-aef5-74dd3ebdb2dc" />
+<img width="1563" height="1163" alt="demo-home-edit" src="https://github.com/user-attachments/assets/21329249-b458-41d5-bd9d-9cd57c2dbd72" />
+<img width="1613" height="1149" alt="demo-menu" src="https://github.com/user-attachments/assets/c8e881c9-5fe1-488e-99b2-b7e201d79dcb" />
+
 
 ## Setup
 
