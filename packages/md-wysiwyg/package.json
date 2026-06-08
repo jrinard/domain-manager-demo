@@ -1,0 +1,21 @@
+{
+  "name": "@spacedock/md-wysiwyg",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "peerDependencies": {
+    "@spacedock/md-viewer": "workspace:*",
+    "mermaid": ">=10.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "@mdxeditor/editor": "^3.4.0"
+  }
+}

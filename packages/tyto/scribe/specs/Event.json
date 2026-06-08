@@ -1,0 +1,21 @@
+{
+  "title": "EventAttendee",
+  "x-stoplight": {
+    "id": "b405xtfa9hmva"
+  },
+  "x-tags": [
+    "Attendee",
+    "Event",
+    "Member"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "x-stoplight": {
+        "id": "bvsl8mwh4ibdp"
+      }
+    }
+  },
+  "description": ""
+}

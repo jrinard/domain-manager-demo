@@ -1,0 +1,32 @@
+{
+  "extends": [
+    "plugin:@nx/react",
+    "../../.eslintrc.json"
+  ],
+  "ignorePatterns": [
+    "!**/*",
+    "**/tailwind-surfaces/*",
+    "**/vite-plugin/*",
+    "**/vite.config.*.timestamp*",
+    "**/vitest.config.*.timestamp*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["packages/bento/tsconfig.*?.json"]
+      },
+      "rules": {
+        "no-console": "error"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}

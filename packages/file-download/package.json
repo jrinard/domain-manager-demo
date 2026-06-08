@@ -1,0 +1,16 @@
+{
+  "name": "file-download",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@types/file-saver": "^2.0.5",
+    "file-saver": "^2.0.5"
+  }
+}

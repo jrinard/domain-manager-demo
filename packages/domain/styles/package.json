@@ -1,0 +1,17 @@
+{
+  "name": "@domain/styles",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@types/culori": "^4.0.1",
+    "culori": "^4.0.2",
+    "postcss": "8.4.38"
+  }
+}

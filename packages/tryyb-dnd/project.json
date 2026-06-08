@@ -1,0 +1,27 @@
+{
+  "name": "tryyb-dnd",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/tryyb-dnd/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:util", "testable:false"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/tryyb-dnd",
+        "main": "packages/tryyb-dnd/src/index.ts",
+        "tsConfig": "packages/tryyb-dnd/tsconfig.lib.json",
+        "assets": []
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/tryyb-dnd/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

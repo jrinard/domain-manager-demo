@@ -1,0 +1,17 @@
+{
+  "name": "@falcon/style",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.6.0",
+    "clsx": "^1.2.1",
+    "tailwind-merge": "^1.12.0"
+  }
+}

@@ -1,0 +1,33 @@
+.grid-stack {
+  position: relative;
+}
+
+.grid-stack > .grid-stack-item {
+  position: absolute;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: var(--gs-column-width);
+  height: var(--gs-cell-height);
+}
+
+.grid-stack > .grid-stack-item > .grid-stack-item-content {
+  position: absolute;
+  top: var(--gs-item-margin-top);
+  right: var(--gs-item-margin-right);
+  bottom: var(--gs-item-margin-bottom);
+  left: var(--gs-item-margin-left);
+  width: auto;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.grid-stack-animate,
+.grid-stack-animate .grid-stack-item {
+  transition:
+    left 0.3s,
+    top 0.3s,
+    height 0.3s,
+    width 0.3s;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@tyto/scribe",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "devDependencies": {
+    "@types/readable-stream": "^4.0.5",
+    "await-spawn": "^4.0.2",
+    "quicktype": "^23.0.78"
+  },
+  "dependencies": {
+    "@expo/spawn-async": "^1.7.2",
+    "quicktype-core": "^23.0.78",
+    "readable-stream": "^4.4.2"
+  },
+  "generators": "./generators.json"
+}

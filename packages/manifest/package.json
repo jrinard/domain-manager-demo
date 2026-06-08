@@ -1,0 +1,8 @@
+{
+  "name": "@spacedock/manifest",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "dependencies": {
+    "@tanstack/react-query": "^5.80.7"
+  }
+}

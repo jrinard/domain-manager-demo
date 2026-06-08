@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "postman": {
+      "factory": "./src/generators/postman/generator",
+      "schema": "./src/generators/postman/schema.json",
+      "description": "Create Lore and Types from Postman"
+    }
+  }
+}

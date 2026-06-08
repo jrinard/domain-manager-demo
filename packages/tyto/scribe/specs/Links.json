@@ -1,0 +1,76 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "encType": {
+        "type": "string"
+      },
+      "contentType": {
+        "type": "string"
+      },
+      "href": {
+        "type": "string"
+      },
+      "media": {
+        "type": "string"
+      },
+      "method": {
+        "type": "string"
+      },
+      "targetPref": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "parameters": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "rel": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "x-examples": {
+    "Example 1": [
+      {
+        "encType": "application/x-www-form-urlencoded",
+        "contentType": "application/json",
+        "href": "api/PlatformReview/task",
+        "media": "",
+        "method": "get",
+        "targetPref": "",
+        "title": "Get Platform Review Tasks",
+        "parameters": [],
+        "rel": [
+          "http://kvau.lt/PlatformReview/task"
+        ]
+      }
+    ]
+  },
+  "examples": [
+    [
+      {
+        "encType": "application/x-www-form-urlencoded",
+        "contentType": "application/json",
+        "href": "api/PlatformReview/task",
+        "media": "",
+        "method": "get",
+        "targetPref": "",
+        "title": "Get Platform Review Tasks",
+        "parameters": [],
+        "rel": [
+          "http://kvau.lt/PlatformReview/task"
+        ]
+      }
+    ]
+  ]
+}

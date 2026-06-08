@@ -1,0 +1,19 @@
+export const FUNCTION_SCOPE_NAMES = {
+  ocVIEW: 'ocVIEW',
+  ocADD: 'ocADD',
+  ocCHANGE: 'ocCHANGE',
+  ocDELETE: 'ocDELETE',
+} as const
+
+export const SCOPE_CONSTANTS = {
+  DOMAIN: 6,
+  DOMAINSTOROOT: 800,
+  MEMBERSHIPS: 2,
+  MEMBERSHIPSDOWN: 3,
+  MEMBERSHIPSUP: 4,
+  MEMBERSHIPSUPDOWN: 5,
+  NONE: 0,
+  ROOT: 7,
+  SELF: 1,
+  TEAMLEAD: 1,
+} as const

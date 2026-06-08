@@ -1,0 +1,15 @@
+{
+  "name": "@falcon/sheet",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.4"
+  }
+}

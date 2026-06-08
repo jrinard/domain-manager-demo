@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "@falcon/icons",
+  "aliases": {
+    "components": "packages/falcon-ui/src/components",
+    "utils": "packages/falcon-ui/src/lib/utils"
+  },
+  "registries": {
+    "@intentui": {
+      "url": "https://intentui.com/r/{name}"
+    }
+  }
+}

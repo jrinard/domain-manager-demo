@@ -1,0 +1,19 @@
+{
+  "name": "@spacedock/data-validation",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "zod": "4.1.12"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

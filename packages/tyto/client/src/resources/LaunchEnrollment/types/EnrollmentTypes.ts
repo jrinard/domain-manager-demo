@@ -1,0 +1,59 @@
+export interface Enrollment {
+  ocType: string
+  name: string
+  memberID: number
+  curriculumID: number
+  completeStatus: string
+  completedDate: Date
+  passStatus: string
+  score: number
+  bookMark: string
+  cummAttempts: number
+  cummTime: Date
+  sessionTime: Date
+  lastDate: Date
+  entryMode: string
+  launchBehavior: string
+  isEnrolled: boolean
+  enrolledDate: Date
+  isRegistered: boolean
+  registeredDate: Date
+  isLaunchable: boolean
+  isPaid: boolean
+  paidDate: Date
+  mentorID: number
+  comment: string
+  verifiedUserID: number
+  enrollmentID: number
+  creditID: number
+  dueDate: Date
+  location: string
+  registeredByID: number
+  recertDate: Date
+  member: Curriculum
+  curriculum: Curriculum
+  startedDate: Date
+  taskMembers: any[]
+  locID: number
+  activeStatus: string
+}
+
+export interface Curriculum {
+  name: string
+  locID: number
+  ocType: string
+  elementID: number
+  elementName: string
+  elementDesc: string
+  elementType: string
+  elementSubType: string
+  domainID: number
+  outsideID: string
+  createdByID: number
+  createdDate: Date
+  primaryElementID: number
+  modifiedByID: number
+  modifiedDate: Date
+  activeStatus: string
+  mentors?: any[]
+}

@@ -1,0 +1,34 @@
+{
+  "extends": ["plugin:@nx/react", "../../../.eslintrc.json"],
+  "ignorePatterns": [
+    "!**/*",
+    "**/vite.config.*.timestamp*",
+    "**/vitest.config.*.timestamp*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parserOptions": {
+        "project": ["./packages/tyto/client/tsconfig.*?.json"]
+      },
+      "rules": {
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/require-await": "warn",
+        "@typescript-eslint/no-unsafe-return": "warn",
+        "@typescript-eslint/await-thenable": "warn",
+        "@typescript-eslint/no-explicit-any": "warn"
+      }
+    },
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-explicit-any": "warn"
+      }
+    }
+  ]
+}

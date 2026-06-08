@@ -1,0 +1,20 @@
+{
+  "name": "@tyto/msw",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./test-setup": {
+      "import": "./test-setup.mjs",
+      "require": "./test-setup.js"
+    }
+  },
+  "devDependencies": {
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "vite-plugin-node-polyfills": "^0.15.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@spacedock/cargo-bay",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "localforage": "^1.10.0",
+    "react-use": "^17.5.0"
+  },
+  "devDependencies": {
+    "vitest-localstorage-mock": "^0.0.1"
+  }
+}

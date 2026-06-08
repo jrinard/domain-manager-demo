@@ -1,0 +1,4 @@
+.action-bar {
+  background-color: var(--navbar, var(--topbar, inherit));
+  color: var(--navbar-fg, var(--topbar-fg, inherit));
+}

@@ -1,0 +1,4 @@
+.sheet-dialog {
+  top: var(--site-top-height);
+  height: calc(100dvh - var(--site-top-height, 0px));
+}

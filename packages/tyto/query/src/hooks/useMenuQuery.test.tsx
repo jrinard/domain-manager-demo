@@ -1,0 +1,41 @@
+import { renderHook, waitFor } from '@testing-library/react'
+import {
+  describe,
+  expect,
+  it,
+  vi,
+  afterAll,
+  afterEach,
+  beforeAll,
+} from 'vitest'
+import { PropsWithChildren } from 'react'
+import {
+  QueryClientProvider,
+  TytoClientProvider,
+} from '@spacedock/holoprojector'
+import { setupTestServer } from '@tyto/msw/test-setup'
+
+import { useMenuQuery } from './useMenuQuery'
+
+vi.mock('@spacedock/cargo-bay', () => ({
+  SessionHandling: { getActiveSessionKey: () => 'key' },
+}))
+
+describe('useMenuQuery', () => {
+  setupTestServer({ afterAll, afterEach, beforeAll })
+  it('returns data', async () => {
+    const wrapper = ({ children }: PropsWithChildren) => (
+      <TytoClientProvider>
+        <QueryClientProvider>{children}</QueryClientProvider>
+      </TytoClientProvider>
+    )
+    const { result } = renderHook(() => useMenuQuery({}), {
+      wrapper,
+    })
+
+    //
+    await waitFor(() => expect(result.current.isPending).toEqual(false))
+    expect(result.current.data).toHaveProperty('menuItems')
+    expect(result.current.data?.menuItems?.length).toBeGreaterThan(0)
+  })
+})

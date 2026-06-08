@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "type": "object",
+  "description": "Extract Postman Example to Lore",
+  "properties": {
+    "requestName": {
+      "description": "Name of the Postman Request",
+      "type": "string",
+      "x-prompt": {
+        "message": "Name of the Postman Request",
+        "type": "string",
+        "minLength": "3"
+      }
+    },
+    "responseName": {
+      "description": "Name of the Postman Request example response",
+      "type": "string",
+      "x-prompt": {
+        "message": "Name of the Postman Request example response",
+        "type": "string",
+        "minLength": "3"
+      }
+    },
+    "method": {
+      "description": "The HTTP Method (e.g. GET)",
+      "type": "string",
+      "alias": "v",
+      "default": "organisms",
+      "x-prompt": {
+        "message": "The HTTP Method (e.g. GET)",
+        "type": "list",
+        "items": [
+          {
+            "value": "get",
+            "label": "GET"
+          },
+          {
+            "value": "post",
+            "label": "POST"
+          },
+          {
+            "value": "put",
+            "label": "PUT"
+          },
+          {
+            "value": "delete",
+            "label": "DELETE"
+          }
+        ]
+      }
+    }
+  }
+}

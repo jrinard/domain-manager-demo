@@ -1,0 +1,8 @@
+{
+  "name": "@spacedock/lore",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "dependencies": {
+    "msw": "1.3.2"
+  }
+}

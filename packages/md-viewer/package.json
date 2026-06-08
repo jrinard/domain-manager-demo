@@ -1,0 +1,21 @@
+{
+  "name": "@spacedock/md-viewer",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "peerDependencies": {
+    "mermaid": ">=10.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "react-markdown": "^10.0.0",
+    "remark-gfm": "^4.0.1"
+  }
+}

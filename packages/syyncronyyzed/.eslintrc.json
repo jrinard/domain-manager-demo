@@ -1,0 +1,34 @@
+{
+  "extends": ["plugin:@nx/react", "../../.eslintrc.json"],
+  "ignorePatterns": [
+    "!**/*",
+    "**/vite.config.*.timestamp*",
+    "**/vitest.config.*.timestamp*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["packages/syyncronyyzed/tsconfig.*?.json"]
+      },
+      "rules": {
+        "no-console": "warn",
+        "no-restricted-syntax": [
+          "warn",
+          {
+            "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(error)$/]",
+            "message": "console.error is the only method allowed until WinstonJS is allowed"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@spacedock/chaincode",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "dependencies": {
+    "react-use": "^17.5.0"
+  }
+}

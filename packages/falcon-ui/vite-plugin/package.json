@@ -1,0 +1,8 @@
+{
+  "name": "@spacedock/falcon-ui/vite-plugin",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "devDependencies": {
+    "unplugin-fonts": "1.1.1"
+  }
+}

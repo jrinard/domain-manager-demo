@@ -1,0 +1,31 @@
+{
+  "name": "@tyto/assets",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/tyto/assets/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/tyto/assets",
+        "main": "packages/tyto/assets/src/index.ts",
+        "tsConfig": "packages/tyto/assets/tsconfig.lib.json",
+        "assets": ["packages/tyto/assets/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{workspaceRoot}/coverage/packages/tyto/client"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/packages/tyto/client"
+      }
+    }
+  },
+  "tags": ["type:package"]
+}

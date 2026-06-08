@@ -1,0 +1,26 @@
+{
+  "name": "@falcon/icons",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify/react": "^6.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "@iconify-json/material-symbols": "^1.2.26",
+    "@iconify/tools": "^4.1.2",
+    "@nx/devkit": "20.8.2",
+    "@storybook/blocks": "^8.6.14",
+    "@types/copy-paste": "^1.1.33",
+    "copy-paste": "^1.5.3"
+  },
+  "generators": "./generators.json"
+}

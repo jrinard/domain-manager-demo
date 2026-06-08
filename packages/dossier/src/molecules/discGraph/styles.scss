@@ -1,0 +1,91 @@
+.cc-disc {
+  position: relative;
+  margin: 0 auto;
+
+  // * [Option 1] - Modern Hakha Design w/Gradient
+  border-radius: 6px;
+  background: linear-gradient(133.15deg, #ffa5a5 3.02%, #ffa5a5 100%),
+  linear-gradient(132.3deg, #a5d6fe 8.78%, #a5d6fe 100%),
+  linear-gradient(136.49deg, #d1a5fb 10.1%, #d1a5fb 100%),
+  linear-gradient(133.03deg, #bbf4b3 9.27%, #bbf4b3 100%);
+  //   background: linear-gradient(133.15deg, $disc-d 3.02%, $disc-d-dark 100%),
+  //     linear-gradient(132.3deg, $disc-i 8.78%, $disc-i-dark 100%),
+  //     linear-gradient(136.49deg, $disc-c 10.1%, $disc-c-dark 100%),
+  //     linear-gradient(133.03deg, $disc-s 9.27%, $disc-s-dark 100%);
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: top left, top right, bottom left, bottom right;
+
+  // * [Option 2] - Minimalist 4 quadrants
+  //   background: linear-gradient(
+  //       to right,
+  //       lighten($disc-d, 25%) 0% 50%,
+  //       lighten($disc-i, 25%) 50% 100%
+  //     ),
+  //     linear-gradient(
+  //       to right,
+  //       lighten($disc-c, 25%) 0% 50%,
+  //       lighten($disc-s, 25%) 50% 100%
+  //     );
+  //   background-size: 100% 50%;
+  //   background-repeat: no-repeat;
+  //   background-position: top, bottom;
+
+  // * [Option 3] - Legacy KVault background-image
+  //   background: url("/quadrant_faded.png");
+  //   background-size: contain;
+}
+
+.cc-disc-graph {
+  position: relative;
+  margin: 0px;
+}
+
+.cc-disc-label-sm {
+  font-size: 16px;
+  position: absolute;
+  font-weight: 900;
+  transition: opacity 120ms ease-in-out;
+  opacity: 0;
+
+  .cc-disc:hover & {
+    opacity: 1;
+  }
+}
+
+.cc-disc-label-sm-d {
+  top: 2px;
+  left: 4px;
+  color: var(--black);
+}
+
+.cc-disc-label-sm-i {
+  top: 2px;
+  right: 4px;
+  color: var(--black);
+}
+
+.cc-disc-label-sm-s {
+  bottom: 2px;
+  right: 4px;
+  color: var(--black);
+}
+
+.cc-disc-label-sm-c {
+  bottom: 2px;
+  left: 4px;
+  color: var(--black);
+}
+
+.cc-disc-grid-letter {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "falcon-ui-vite-plugin",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "/src",
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{workspaceRoot}/coverage/packages/falcon-ui/vite-plugin"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/packages/falcon-ui/vite-plugin"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": ["type:package", "testable:false"]
+}

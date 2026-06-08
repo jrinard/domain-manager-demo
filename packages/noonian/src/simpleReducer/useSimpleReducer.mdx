@@ -1,0 +1,39 @@
+# `useSimpleReducer`
+
+### Purpose
+
+Avoid rewritting boilerplate code for setting up a typesafe `reducer` with an out of the box method that does everything you need simple `CRUD` on a state object
+
+### Usage
+
+Firstly intended for `forms`. It is common to have edit forms, such as a Modal that lets one update detauls about a `Person`, `Task`, `Team`, etc..
+
+## Basic Usage Example
+
+```tsx
+// * A terse Form for Editing some Person details
+type FormData = Pick<TytoData.Person, "givenName" | "familyName" | "jobTitle" | "birthMonth" | "birthDate">
+...
+function PersonForm({ person }: Props) {
+  const { state, update } = useSimpleReducer<FormData>(_.pick(person, ["givenName", "familyName", "jobTitle", "birthMonth", "birthDate"]))
+
+  return (
+    <form>
+      <input
+        name="givenName"
+        value={state.givenName}
+        onChange={(e) => update({ givenName: e.target.value })} // * Type Safe
+      />
+
+      <button
+        onClick={(e) => {
+          update({ givenName: 12345 }) // * TSerror: Type 'number' is not assignable to type 'string'
+          e.preventDefault()
+        }}
+      >
+        Make TypeScript Complain
+      </button>
+    </form>
+  )
+}
+```

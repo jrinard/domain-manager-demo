@@ -1,0 +1,64 @@
+import { act, renderHook, waitFor } from '@testing-library/react'
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest'
+import { PropsWithChildren } from 'react'
+import {
+  TytoClientProvider,
+  QueryClientProvider,
+} from '@spacedock/holoprojector'
+import { setupTestServer } from '@tyto/msw/test-setup'
+
+import { useDomainUIConfigurationLibraryImageUploadCreateMutation } from './useDomainUIConfigurationLibraryImageUploadCreateMutation'
+
+vi.mock('@spacedock/cargo-bay', () => ({
+  SessionHandling: { getActiveSessionKey: () => 'key' },
+}))
+
+describe('useDomainUIConfigurationLibraryImageUploadCreateMutation', () => {
+  setupTestServer({ afterAll, afterEach, beforeAll })
+  // * Happy path
+  it('returns the response from a Successfully mutation', async () => {
+    const wrapper = ({ children }: PropsWithChildren) => (
+      <TytoClientProvider>
+        <QueryClientProvider>{children}</QueryClientProvider>
+      </TytoClientProvider>
+    )
+    const onSuccess = vi.fn()
+    const onError = vi.fn()
+
+    const {
+      result: { current },
+    } = renderHook(
+      () =>
+        useDomainUIConfigurationLibraryImageUploadCreateMutation({
+          onSuccess,
+          onError,
+        }),
+      { wrapper },
+    )
+
+    act(() => {
+      current.mutate({
+        domainID: 551,
+        UIconfigGUID: 'abcd-12345678-90ab-cdef',
+        tempUploadKey: '1234567890',
+        tag: 'test',
+      })
+    })
+
+    await waitFor(() => expect(current.isPending).toEqual(false))
+    await waitFor(() => expect(onError).not.toHaveBeenCalled())
+    await waitFor(() => expect(onSuccess).toHaveBeenCalledOnce())
+
+    expect(onSuccess).toHaveBeenCalledWith({
+      recordsAffected: -1,
+    })
+  })
+})

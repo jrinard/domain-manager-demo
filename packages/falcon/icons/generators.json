@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "create": {
+      "factory": "./generators/create/generator",
+      "schema": "./generators/create/schema.json",
+      "description": "Add an icon to Icon. First, Copy to your clipboard the SVG from Figma"
+    }
+  }
+}

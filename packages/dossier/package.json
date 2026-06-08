@@ -1,0 +1,20 @@
+{
+  "name": "@spacedock/dossier",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@types/fabric": "^5.3.3",
+    "fabric": "^5.3.0"
+  },
+  "devDependencies": {
+    "happy-dom": "^14.11.0",
+    "vitest-canvas-mock": "^0.3.3"
+  }
+}

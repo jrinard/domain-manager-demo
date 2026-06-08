@@ -1,0 +1,43 @@
+---
+description: Where this repo came from and when to read the Spacedock monorepo for extra context
+alwaysApply: true
+---
+
+# Spacedock source context
+
+This workspace is **domain-manager-portfolio** — a standalone demo extracted from the private **Spacedock** monorepo. It is self-contained at runtime (Vite + MSW mocks). Do **not** assume Spacedock is open or running.
+
+## Upstream source of truth
+
+When you need production behavior, original implementations, or history of how Domain Manager works in the real app, check **Spacedock**:
+
+**Path:** `/Users/joshuarinard/Desktop/MasterMocaworks/spacedock`
+
+Useful locations there:
+
+- `packages/interfaces/domain-manager/` — Domain Manager UI (vendored into this repo’s `packages/interfaces/domain-manager/`)
+- `apps/tryyb/` — how Domain Manager is mounted in production (`domain-manager/*` routes)
+- `packages/falcon-ui/`, `packages/domain/`, `packages/tyto/` — shared packages copied under this repo’s `packages/`
+
+## When to look at Spacedock
+
+- Syncing or updating vendored UI: `./scripts/sync-from-spacedock.sh /path/to/spacedock` then `./scripts/patch-for-portfolio.sh`
+- Comparing a bug or styling issue to production Tryyb / Domain Manager
+- Finding handlers, lore fixtures, or API shapes not fully mocked here
+- Understanding Nx workspace layout, real backends, or features **out of scope** for this demo (Theme, Images, R3, uploads, new-domain wizard)
+
+## Keep changes here, not in Spacedock
+
+Portfolio-only fixes belong in this repo:
+
+- `src/` — demo app, MSW mocks, providers, `demo-shell.css`
+- `scripts/patch-for-portfolio.sh` — patches re-applied after sync
+- `.env.development` — `VITE_DOMAIN_MANAGER_DEMO=true`
+
+Avoid editing Spacedock unless the user explicitly opens that project and asks for it.
+
+## Quick reference (this repo)
+
+- Default domain: **551** (Cherry), mock data in `src/mocks/demoStore.ts`
+- Dev: `pnpm dev` → http://localhost:4400/domain-manager/domain/551/tryyb
+- Architecture checklist: `PLAN.md`, `README.md`

@@ -1,0 +1,273 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "types": ["vitest/importMeta"],
+    "paths": {
+      "@domain/configs": ["packages/domain/configs/src/index.ts"],
+      "@domain/schemas": ["packages/domain/schemas/src/index.ts"],
+      "@domain/styles": ["packages/domain/styles/src/index.ts"],
+      "@domain/ui": ["packages/domain/ui/src/index.ts"],
+      "@falcon/buttons": ["packages/falcon/buttons/src/index.ts"],
+      "@falcon/date-picker": ["packages/falcon/date-picker/src/index.ts"],
+      "@falcon/form": ["packages/falcon/form/src/index.ts"],
+      "@falcon/icon-picker": ["packages/falcon/icon-picker/src/index.ts"],
+      "@falcon/icons": ["packages/falcon/icons/src/index.ts"],
+      "@falcon/input": ["packages/falcon/input/src/index.ts"],
+      "@falcon/inputs": ["packages/falcon/inputs/src/index.ts"],
+      "@falcon/sheet": ["packages/falcon/sheet/src/index.ts"],
+      "@falcon/storybook": ["packages/falcon/storybook/src/index.ts"],
+      "@falcon/style": ["packages/falcon/style/src/index.ts"],
+      "@falcon/table": ["packages/falcon/table/src/index.ts"],
+      "@falcon/tailwind": ["packages/falcon/tailwind/src/index.js"],
+      "@falcon/text-highlighter": [
+        "packages/falcon/text-highlighter/src/index.ts"
+      ],
+      "@falcon/video": ["packages/falcon/video/src/index.ts"],
+      "@falcon/virtual-list": ["packages/falcon/virtual-list/src/index.ts"],
+      "@holodeck/router": ["packages/holodeck/router/src/index.ts"],
+      "@holodeck/syync": ["packages/holodeck/syync/src/index.ts"],
+      "@interfaces/action-plan": [
+        "packages/interfaces/action-plan/src/index.ts"
+      ],
+      "@interfaces/analytics-dashboard": [
+        "packages/interfaces/analytics-dashboard/src/index.ts"
+      ],
+      "@interfaces/calendar": ["packages/interfaces/calendar/src/index.ts"],
+      "@interfaces/domain-manager": [
+        "packages/interfaces/domain-manager/src/index.ts"
+      ],
+      "@interfaces/home": ["packages/interfaces/home/src/index.ts"],
+      "@interfaces/inbox": ["packages/interfaces/inbox/src/index.ts"],
+      "@interfaces/platform-review": [
+        "packages/interfaces/platform-review/src/index.ts"
+      ],
+      "@interfaces/platform-review-manager": [
+        "packages/interfaces/platform-review-manager/src/index.ts"
+      ],
+      "@interfaces/team-editor": [
+        "packages/interfaces/team-editor/src/index.ts"
+      ],
+      "@interfaces/mastery": [
+        "packages/interfaces/mastery/src/index.ts"
+      ],
+      "@legacy/oncourse": ["packages/legacy-oncourse/src/index.ts"],
+      "@legacy/oncourse/mediaelement": [
+        "packages/legacy-oncourse/src/mediaelement.ts"
+      ],
+      "@legacy/oncourse/mediaelement-css": [
+        "packages/legacy-oncourse/src/mediaelement-css.ts"
+      ],
+      "@llm/agents": ["packages/llm/agents/src/index.ts"],
+      "@llm/core": ["packages/llm/core/src/index.ts"],
+      "@llm/observability": ["packages/llm/observability/src/index.ts"],
+      "@llm/tools": ["packages/llm/tools/src/index.ts"],
+      "@llm/ui": ["packages/llm/ui/src/index.ts"],
+      "@llm/workflows": ["packages/llm/workflows/src/index.ts"],
+      "@llm/workflows/registry": ["packages/llm/workflows/src/registry.ts"],
+      "@spacedock/bento": ["packages/bento/src/index.ts"],
+      "@spacedock/cargo-bay": ["packages/cargo-bay/src/index.ts"],
+      "@spacedock/chaincode": ["packages/chaincode/src/index.ts"],
+      "@spacedock/comlink": ["packages/comlink/src/index.ts"],
+      "@spacedock/data-validation": ["packages/data-validation/src/index.ts"],
+      "@spacedock/dossier": ["packages/dossier/src/index.ts"],
+      "@spacedock/email-templates": ["packages/email-templates/src/index.ts"],
+      "@spacedock/falcon-ui": ["packages/falcon-ui/src/index.ts"],
+      "@spacedock/falcon-ui/vite-plugin": [
+        "packages/falcon-ui/vite-plugin/src/index.ts"
+      ],
+      "@spacedock/file-download": ["packages/file-download/src/index.ts"],
+      "@spacedock/files": ["packages/files/src/index.ts"],
+      "@spacedock/holoprojector": ["packages/holoprojector/src/index.ts"],
+      "@spacedock/image-crop": ["packages/image-crop/src/index.ts"],
+      "@spacedock/lore": ["packages/lore/src/index.ts"],
+      "@spacedock/manifest": ["packages/manifest/src/index.ts"],
+      "@spacedock/md-viewer": ["packages/md-viewer/src/index.ts"],
+      "@spacedock/md-wysiwyg": ["packages/md-wysiwyg/src/index.ts"],
+      "@spacedock/navigator": ["packages/navigator/src/index.ts"],
+      "@spacedock/noonian": ["packages/noonian/src/index.ts"],
+      "@spacedock/odo": ["packages/odo/src/index.ts"],
+      "@spacedock/origins": ["packages/origins/src/index.ts"],
+      "@spacedock/platform-review-toolkit": [
+        "packages/platform-review-toolkit/src/index.ts"
+      ],
+      "@spacedock/printer": ["packages/printer/src/index.ts"],
+      "@spacedock/serverless-api": ["packages/serverless-api/src/index.ts"],
+      "@spacedock/starliner": ["packages/starliner/src/index.ts"],
+      "@spacedock/starlog": ["packages/starlog/src/index.ts"],
+      "@spacedock/syyncronyyzed": ["packages/syyncronyyzed/src/index.ts"],
+      "@spacedock/tardis": ["packages/tardis/src/index.ts"],
+      "@spacedock/transporter": ["packages/transporter/src/index.ts"],
+      "@spacedock/tricorder": ["packages/tricorder/src/index.ts"],
+      "@spacedock/tryyb-dnd": ["packages/tryyb-dnd/src/index.ts"],
+      "@spacedock/tryyb-services": ["packages/tryyb-services/src/index.ts"],
+      "@spacedock/use-number": ["packages/use-number/src/index.ts"],
+      "@spacedock/use-param-number": ["packages/use-param-number/src/index.ts"],
+      "@spacedock/usedom": ["packages/usedom/src/index.ts"],
+      "@spacedock/warp": ["packages/warp/src/index.ts"],
+      "@syync/tyto-auth": ["packages/syync/tyto-auth/src/index.ts"],
+      "@tryyb/core": ["packages/tryyb-core/src/index.ts"],
+      "@tryyb/data": ["packages/tryyb-data/src/index.ts"],
+      "@tyto/assets": ["packages/tyto/assets/src/index.ts"],
+      "@tyto/client": ["packages/tyto/client/src/index.ts"],
+      "@tyto/lore": ["packages/tyto/lore/src/index.ts"],
+      "@tyto/manifest": ["packages/tyto/manifest/src/index.ts"],
+      "@tyto/msw": ["packages/tyto/msw/src/index.ts"],
+      "@tyto/msw/test-setup": ["packages/tyto/msw/src/test-setup.ts"],
+      "@tyto/query": ["packages/tyto/query/src/index.ts"],
+      "@tyto/scribe": ["packages/tyto/scribe/src/index.ts"],
+      "core/analytics": ["packages/tryyb-core/src/helpers/index.ts"],
+      "core/constants": ["packages/tryyb-core/src/constants/index.ts"],
+      "data/command-channel": ["apps/tryyb/src/data/command-channel/index.ts"],
+      "data/db/tables": ["packages/tryyb-data/src/db/tables.ts"],
+      "data/db/tables/": ["packages/tryyb-data/src/db/tables.ts"],
+      "data/interfaces/chooser/actions/": [
+        "apps/tryyb/src/data/interfaces/chooser/actions/index.ts"
+      ],
+      "data/interfaces/inbox/shared/": [
+        "apps/tryyb/src/data/interfaces/inbox/shared/index.ts"
+      ],
+      "data/interfaces/media-viewer/actions/": [
+        "apps/tryyb/src/data/interfaces/media-viewer/actions/index.ts"
+      ],
+      "data/interfaces/media-viewer/stores/": [
+        "apps/tryyb/src/data/interfaces/media-viewer/stores/index.ts"
+      ],
+      "data/interfaces/popups/actions/": [
+        "apps/tryyb/src/data/interfaces/popups/actions/index.ts"
+      ],
+      "data/interfaces/popups/stores/": [
+        "apps/tryyb/src/data/interfaces/popups/stores/index.ts"
+      ],
+      "data/interfaces/popups/utils/": [
+        "apps/tryyb/src/data/interfaces/popups/utils/index.ts"
+      ],
+      "data/network": ["packages/tryyb-data/src/network/index.ts"],
+      "data/network/": ["packages/tryyb-data/src/network/index.ts"],
+      "data/network/base/actions/": [
+        "packages/tryyb-data/src/network/index.ts"
+      ],
+      "data/network/base/calls/fetch": [
+        "packages/tryyb-data/src/network/index.ts"
+      ],
+      "data/network/serverless-functions/types": [
+        "packages/tryyb-data/src/network/index.ts"
+      ],
+      "data/network/tyto/utils/menuManageHelpers": [
+        "packages/tryyb-data/src/network/index.ts"
+      ],
+      "data/subscriptions": ["packages/tryyb-data/src/subscriptions/index.ts"],
+      "data/subscriptions/": ["packages/tryyb-data/src/subscriptions/index.ts"],
+      "data/subscriptions/Subscription": [
+        "packages/tryyb-data/src/subscriptions/Subscription.ts"
+      ],
+      "kv-components-higher-order": ["packages/tryyb-dnd/src/index.ts"],
+      "kv-interface-services": [
+        "apps/tryyb/src/interfaces/kv-interface-services/index.tsx"
+      ],
+      "kv-lib-helpers": ["packages/tryyb-core/src/helpers/index.ts"],
+      "kv-lib-server": ["packages/tryyb-core/src/web/index.ts"],
+      "kv-sub-assets-viewer": [
+        "apps/tryyb/src/subcomponents/kv-sub-assets-viewer/index.tsx"
+      ],
+      "kv-sub-assets-viewer/Asset": [
+        "apps/tryyb/src/subcomponents/kv-sub-assets-viewer/Asset.tsx"
+      ],
+      "kv-sub-assets-viewer/types": [
+        "apps/tryyb/src/subcomponents/kv-sub-assets-viewer/types/index.ts"
+      ],
+      "kv-sub-document-converter": [
+        "apps/tryyb/src/subcomponents/kv-sub-document-converter/index.tsx"
+      ],
+      "kv-sub-document-converter/": [
+        "apps/tryyb/src/subcomponents/kv-sub-document-converter/index.tsx"
+      ],
+      "kv-sub-document-viewer": [
+        "apps/tryyb/src/subcomponents/kv-sub-document-viewer/index.tsx"
+      ],
+      "kv-sub-image-drop-target": [
+        "apps/tryyb/src/subcomponents/kv-sub-image-drop-target/index.tsx"
+      ],
+      "kv-sub-image-edit": [
+        "apps/tryyb/src/subcomponents/kv-sub-image-edit/index.tsx"
+      ],
+      "kv-sub-keywords": [
+        "apps/tryyb/src/subcomponents/kv-sub-keywords/index.tsx"
+      ],
+      "kv-sub-like-button": [
+        "apps/tryyb/src/subcomponents/kv-sub-like-button/index.tsx"
+      ],
+      "kv-sub-markdown": [
+        "apps/tryyb/src/subcomponents/kv-sub-markdown/index.tsx"
+      ],
+      "kv-sub-photo-album": [
+        "apps/tryyb/src/subcomponents/kv-sub-photo-album/index.tsx"
+      ],
+      "kv-sub-photo-album/": [
+        "apps/tryyb/src/subcomponents/kv-sub-photo-album/index.tsx"
+      ],
+      "kv-sub-popup-buttons": [
+        "apps/tryyb/src/subcomponents/kv-sub-popup-buttons/index.tsx"
+      ],
+      "kv-sub-popup-hakha": [
+        "apps/tryyb/src/subcomponents/kv-sub-popup-hakha/index.tsx"
+      ],
+      "kv-sub-team-picker": [
+        "apps/tryyb/src/subcomponents/kv-sub-team-picker/index.tsx"
+      ],
+      "kv-sub-url-scraper": [
+        "apps/tryyb/src/subcomponents/kv-sub-url-scraper/index.tsx"
+      ],
+      "libraries/data": ["packages/tryyb-core/src/helpers/index.ts"],
+      "libraries/dispatcher": ["packages/tryyb-core/src/dispatcher/index.ts"],
+      "libraries/domains": ["packages/tryyb-core/src/domains/index.ts"],
+      "libraries/flux-store": ["packages/tryyb-core/src/flux-store/index.ts"],
+      "libraries/helpers": ["packages/tryyb-core/src/helpers/index.ts"],
+      "libraries/logging": ["packages/tryyb-core/src/helpers/index.ts"],
+      "libraries/preferences": ["packages/tryyb-core/src/session/index.ts"],
+      "libraries/reactextras": ["packages/tryyb-core/src/helpers/index.ts"],
+      "libraries/server": ["packages/tryyb-core/src/web/index.ts"],
+      "libraries/session": ["packages/tryyb-core/src/session/index.ts"],
+      "libraries/useractivity": ["packages/tryyb-core/src/helpers/index.ts"],
+      "libraries/utils": ["packages/tryyb-core/src/helpers/index.ts"],
+      "libraries/web": ["packages/tryyb-core/src/web/index.ts"],
+      "services/kv-chooser": ["apps/tryyb/src/services/kv-chooser/index.tsx"],
+      "services/kv-documents": [
+        "apps/tryyb/src/services/kv-documents/index.tsx"
+      ],
+      "services/kv-documents/routing/": [
+        "apps/tryyb/src/services/kv-documents/routing/index.tsx"
+      ],
+      "services/kv-file-transfer": [
+        "apps/tryyb/src/services/kv-file-transfer/index.tsx"
+      ],
+      "services/kv-media-viewer": [
+        "apps/tryyb/src/services/kv-media-viewer/index.tsx"
+      ],
+      "services/kv-popups": ["apps/tryyb/src/services/kv-popups/index.ts"],
+      "services/kv-share": ["apps/tryyb/src/services/kv-share/index.tsx"],
+      "site/menu/MenuIcon": ["apps/tryyb/src/site/top/MenuIcon.tsx"],
+      "site/modals": ["apps/tryyb/src/site/modals/index.tsx"],
+      "site/widgets/components/Count": [
+        "apps/tryyb/src/site/widgets/components/Count.tsx"
+      ],
+      "start/data/actions/": ["apps/tryyb/src/start/data/actions/index.ts"],
+      "warp": ["packages/warp/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

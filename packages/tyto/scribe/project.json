@@ -1,0 +1,63 @@
+{
+  "name": "@tyto/scribe",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/tyto/scribe/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/packages/tyto/scribe"
+      }
+    },
+    "p2o": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/tyto/scribe",
+        "commands": [
+          "pnpm dlx postman-to-openapi specs/TytoAPI.postman_collection.json -f specs/tyto.yaml"
+        ],
+        "parallel": false
+      }
+    },
+    "schemas": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/tyto/scribe",
+        "commands": [
+          "pnpm dlx openapi2schema --input specs/tyto.yaml -p -d > dist/json-schema.json",
+          "pnpm dlx openapi-typescript specs/tyto.yaml -o dist/tyto.d.ts"
+        ],
+        "parallel": false
+      }
+    },
+    "gen": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/tyto/scribe",
+        "commands": [
+          "pnpm dlx @openapitools/openapi-generator-cli generate -i specs/tyto.yaml -o ./dist/tyto-msw.js"
+        ],
+        "parallel": false
+      }
+    },
+    "msw": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/tyto/scribe",
+        "commands": [
+          "pnpm dlx @openapitools/openapi-generator-cli -i specs/openapi.json -o src/services/openapi",
+          "pnpm dlx msw-auto-mock specs/openapi.json --output ./dist/tyto-msw.js"
+        ],
+        "parallel": false
+      }
+    }
+  },
+  "tags": ["type:package", "testable:false"]
+}

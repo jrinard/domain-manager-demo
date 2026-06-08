@@ -1,0 +1,37 @@
+{
+  "extends": ["plugin:@nx/react", "../../.eslintrc.json"],
+  "ignorePatterns": [
+    "!**/*",
+    "**/vite.config.*.timestamp*",
+    "**/vitest.config.*.timestamp*"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["packages/navigator/tsconfig.*?.json"]
+      },
+      "rules": {}
+    },
+    {
+      "extends": [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["packages/navigator/tsconfig.*?.json"]
+      },
+      "rules": {
+        "no-console": "error",
+        "@typescript-eslint/require-await": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}

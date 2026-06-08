@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Domain styles CSS variables are imported via Vite/bundler */
+@layer base {
+  /* Import will be handled by apps importing this file */
+  html {
+    scrollbar-color: var(--bg-contrast-medium) var(--site-bg);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 8px 0px var(--glow-color, currentColor);
+  }
+  50% {
+    box-shadow: 0 0 18px 5px var(--glow-color, currentColor);
+  }
+  100% {
+    box-shadow: 0 0 8px 0px var(--glow-color, currentColor);
+  }
+}

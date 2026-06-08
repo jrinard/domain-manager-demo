@@ -1,0 +1,69 @@
+const { workspaceRoot } = require('@nx/devkit')
+const { join } = require('node:path')
+
+const falconTailwind = require('../falcon/tailwind/src')
+// // const createTailwindConfig = require(
+// //   join(workspaceRoot, 'packages/falcon/tailwind/src'),
+// // ).createConfig
+
+// Get the base config from the factory
+const baseConfig = falconTailwind.createConfig(__dirname, [
+  'packages/falcon-ui',
+  'packages/interfaces/action-plan',
+  'packages/dossier',
+])
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  ...baseConfig,
+  theme: {
+    ...baseConfig.theme,
+
+    // * NOTE: See `@falcon/tailwind -> /src/config-factory.js` for the custom values being set for the project.
+    // // extend: {
+    // //   ...baseConfig.theme.extend,
+    // //   colors: {
+    // //     ...baseConfig.theme.extend.colors,
+    // //     // // shadcn/ui compatible colors
+    // //     border: 'hsl(var(--border))',
+    // //     input: 'hsl(var(--input))',
+    // //     ring: 'hsl(var(--ring))',
+    // //     background: 'hsl(var(--background))',
+    // //     foreground: 'hsl(var(--foreground))',
+    // //     primary: {
+    // //       DEFAULT: 'hsl(var(--primary))',
+    // //       foreground: 'hsl(var(--primary-foreground))',
+    // //     },
+    // //     secondary: {
+    // //       DEFAULT: 'hsl(var(--secondary))',
+    // //       foreground: 'hsl(var(--secondary-foreground))',
+    // //     },
+    // //     destructive: {
+    // //       DEFAULT: 'hsl(var(--destructive))',
+    // //       foreground: 'hsl(var(--destructive-foreground))',
+    // //     },
+    // //     muted: {
+    // //       DEFAULT: 'hsl(var(--muted))',
+    // //       foreground: 'hsl(var(--muted-foreground))',
+    // //     },
+    // //     accent: {
+    // //       DEFAULT: 'hsl(var(--accent))',
+    // //       foreground: 'hsl(var(--accent-foreground))',
+    // //     },
+    // //     popover: {
+    // //       DEFAULT: 'hsl(var(--popover))',
+    // //       foreground: 'hsl(var(--popover-foreground))',
+    // //     },
+    // //     card: {
+    // //       DEFAULT: 'hsl(var(--card))',
+    // //       foreground: 'hsl(var(--card-foreground))',
+    // //     },
+    // //   },
+    // //   borderRadius: {
+    // //     lg: 'var(--radius)',
+    // //     md: 'calc(var(--radius) - 2px)',
+    // //     sm: 'calc(var(--radius) - 4px)',
+    // //   },
+    // // },
+  },
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@tyto/assets",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/mime-types": "^2.1.1"
+  },
+  "dependencies": {
+    "js-file-download": "^0.4.12",
+    "mime-types": "^2.1.35",
+    "react-downloadfile-hook": "^1.0.3"
+  }
+}

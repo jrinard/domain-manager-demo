@@ -1,0 +1,186 @@
+.disc-heatmap-cont {
+  // * DISC Colors
+  --disc-d: #e66c6a;
+  --disc-i: #5bc0eb;
+  --disc-s: #84dd63;
+  --disc-c: #9c78d3;
+  --disc-d-dark: #a84540;
+  --disc-i-dark: #1073c7;
+  --disc-s-dark: #0d7746;
+  --disc-c-dark: #953ea8;
+  --disc-d-light: #ffa5a5;
+  --disc-i-light: #a5d6fe;
+  --disc-s-light: #bbf4b3;
+  --disc-c-light: #d1a5fb;
+
+  position: relative;
+}
+
+.disc-heatmap-info {
+  margin: 0px auto;
+}
+
+.disc-heatmap-points-cont {
+  position: relative;
+}
+
+.disc-heatmap-point-userthumb {
+  // transform: translate3d(-50%, -50%, 0px);
+
+  // &:hover {
+  // transform: translate3d(-50%, -50%, 0px) scale(3.4);
+  // }
+
+  // &.disc-heatmap-point-userthumb-hovering {
+  //   transform: scale(1.01);
+  //   z-index: 1000;
+  // }
+
+  background-color: #333333;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.disc-heatmap-section-labels {
+  position: absolute;
+  margin: 0px;
+  font-size: 12px;
+  color: var(--black-font);
+  font-weight: bold;
+
+  &.d {
+    color: var(--disc-d);
+  }
+
+  &.i {
+    color: var(--disc-i);
+  }
+
+  &.s {
+    color: var(--disc-s);
+  }
+
+  &.c,
+  &.a {
+    color: var(--disc-c);
+  }
+}
+
+.disc-heatmap-section-grid-letter {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  //   font-weight: bold;
+}
+
+.cc-disc-heatmap-btn-selected {
+  background-color: var(--grey-light-bg);
+}
+
+.disc-heatmap-canvas-bg {
+}
+
+.disc-heatmap-points {
+  position: absolute;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.disc-heatmap-point-cont {
+  position: absolute;
+  cursor: default;
+  height: 10px;
+  width: 10px;
+  line-height: 2px;
+  text-align: center;
+  z-index: 51;
+  transition: all 0.4s;
+  transition-delay: 0.1s;
+  box-sizing: border-box;
+}
+
+.disc-heatmap-point {
+  width: 4px;
+  height: 4px;
+  background-color: var(--black-font);
+  border-radius: 50%;
+}
+
+.disc-heatmap-btns {
+  padding-top: 20px;
+  padding-bottom: 0px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cc-disc-heatmap-btn {
+  font-weight: bold;
+  color: var(--black-font);
+  border-color: grey(--grey-border);
+  width: calc(50% - 2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+}
+
+.disc-grid-bg {
+  border-radius: 6px;
+  background: linear-gradient(
+      133.15deg,
+      var(--disc-d-light),
+      3.02%,
+      var(--disc-d-light) 100%
+    ),
+    linear-gradient(
+      132.3deg,
+      var(--disc-i-light),
+      8.78%,
+      var(--disc-i-light) 100%
+    ),
+    linear-gradient(
+      136.49deg,
+      var(--disc-c-light),
+      10.1%,
+      var(--disc-c-light) 100%
+    ),
+    linear-gradient(
+      133.03deg,
+      var(--disc-s-light),
+      9.27%,
+      var(--disc-s-light) 100%
+    );
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position:
+    top left,
+    top right,
+    bottom left,
+    bottom right;
+
+  &.disc-grid-bg-with-grid {
+    position: relative;
+
+    &::after {
+      content: '';
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      width: 50%;
+      height: 50%;
+      box-sizing: border-box;
+      position: absolute;
+      left: 25%;
+      top: 25%;
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "type": "object",
+  "properties": {
+    "assetID": {
+      "type": "integer"
+    },
+    "assetName": {
+      "type": "string"
+    },
+    "assetDesc": {
+      "type": "string"
+    },
+    "assetType": {
+      "type": "string"
+    },
+    "orientation": {
+      "type": "string"
+    },
+    "modifiedDate": {
+      "type": "string"
+    },
+    "modifiedByID": {
+      "type": "integer"
+    },
+    "createdDate": {
+      "type": "string"
+    },
+    "createdByID": {
+      "type": "integer"
+    },
+    "createdByName": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "softwareRequirements": {
+      "type": "string"
+    },
+    "originalMD5": {
+      "type": "string"
+    },
+    "domainID": {
+      "type": "integer"
+    },
+    "encodings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "encodingType": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "modifiedDate": {
+            "type": "string"
+          },
+          "height": {
+            "type": "integer"
+          },
+          "width": {
+            "type": "integer"
+          },
+          "length": {
+            "type": "integer"
+          },
+          "sizeBytes": {
+            "type": "integer"
+          },
+          "techNote": {
+            "type": "string"
+          },
+          "activeStatus": {
+            "type": "string"
+          },
+          "pathURL": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "courseItemID": {
+      "type": "integer"
+    }
+  },
+  "x-examples": {
+    "Example 1": {
+      "assetID": 2218073,
+      "assetName": "IMGL8356.jpeg",
+      "assetDesc": "",
+      "assetType": "ocPhoto",
+      "orientation": "ocVOID",
+      "modifiedDate": "2023-05-08T16:28:50.333",
+      "modifiedByID": 2209853,
+      "createdDate": "2023-05-08T16:28:50.333",
+      "createdByID": 2209853,
+      "createdByName": "John Bailey",
+      "sequence": 2,
+      "softwareRequirements": "",
+      "originalMD5": "cRLXetPF0GJd/XfGjnx1pA==",
+      "domainID": 1698652,
+      "encodings": [
+        {
+          "encodingType": "ocDEFAULT",
+          "mimeType": "image/jpeg",
+          "modifiedDate": "2023-05-08T16:28:50.333",
+          "height": 500,
+          "width": 500,
+          "length": 0,
+          "sizeBytes": 0,
+          "techNote": "",
+          "activeStatus": "ocENABLED",
+          "pathURL": "/tyto/api/person/profilephoto?assetID=2218073&encoding=ocDEFAULT"
+        },
+        {
+          "encodingType": "ocORIGINAL",
+          "mimeType": "image/jpeg",
+          "modifiedDate": "2023-05-08T16:28:50.333",
+          "height": 500,
+          "width": 500,
+          "length": 0,
+          "sizeBytes": 19240,
+          "techNote": "",
+          "activeStatus": "ocENABLED",
+          "pathURL": "/tyto/api/person/profilephoto?assetID=2218073&encoding=ocORIGINAL"
+        },
+        {
+          "encodingType": "ocTHUMBNAIL",
+          "mimeType": "image/jpeg",
+          "modifiedDate": "2023-05-08T16:28:50.333",
+          "height": 500,
+          "width": 500,
+          "length": 0,
+          "sizeBytes": 0,
+          "techNote": "",
+          "activeStatus": "ocENABLED",
+          "pathURL": "/v2/domains/1698652/assets/2209853_kvemjhrbf1w_200px.jpg"
+        }
+      ],
+      "courseItemID": 2209853
+    }
+  },
+  "examples": [
+    {
+      "memberID": 2209853,
+      "memberName": "John Bailey",
+      "profileImage": {
+        "assetID": 2218073,
+        "assetName": "IMGL8356.jpeg",
+        "assetDesc": "",
+        "assetType": "ocPhoto",
+        "orientation": "ocVOID",
+        "modifiedDate": "2023-05-08T16:28:50.333",
+        "modifiedByID": 2209853,
+        "createdDate": "2023-05-08T16:28:50.333",
+        "createdByID": 2209853,
+        "createdByName": "John Bailey",
+        "sequence": 2,
+        "softwareRequirements": "",
+        "originalMD5": "cRLXetPF0GJd/XfGjnx1pA==",
+        "domainID": 1698652,
+        "encodings": [
+          {
+            "encodingType": "ocDEFAULT",
+            "mimeType": "image/jpeg",
+            "modifiedDate": "2023-05-08T16:28:50.333",
+            "height": 500,
+            "width": 500,
+            "length": 0,
+            "sizeBytes": 0,
+            "techNote": "",
+            "activeStatus": "ocENABLED",
+            "pathURL": "/tyto/api/person/profilephoto?assetID=2218073&encoding=ocDEFAULT"
+          },
+          {
+            "encodingType": "ocORIGINAL",
+            "mimeType": "image/jpeg",
+            "modifiedDate": "2023-05-08T16:28:50.333",
+            "height": 500,
+            "width": 500,
+            "length": 0,
+            "sizeBytes": 19240,
+            "techNote": "",
+            "activeStatus": "ocENABLED",
+            "pathURL": "/tyto/api/person/profilephoto?assetID=2218073&encoding=ocORIGINAL"
+          },
+          {
+            "encodingType": "ocTHUMBNAIL",
+            "mimeType": "image/jpeg",
+            "modifiedDate": "2023-05-08T16:28:50.333",
+            "height": 500,
+            "width": 500,
+            "length": 0,
+            "sizeBytes": 0,
+            "techNote": "",
+            "activeStatus": "ocENABLED",
+            "pathURL": "/v2/domains/1698652/assets/2209853_kvemjhrbf1w_200px.jpg"
+          }
+        ],
+        "courseItemID": 2209853
+      }
+    }
+  ]
+}

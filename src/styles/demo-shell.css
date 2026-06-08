@@ -1,0 +1,16 @@
+/* Portfolio demo: baseline readable text on dark theme (Tryyb provides this via Surface + shell). */
+html,
+body {
+  background-color: var(--site-bg);
+  color: var(--site-fg);
+}
+
+a,
+button {
+  color: inherit;
+}
+
+/* Radix portals (dialogs, popovers) mount on <body> outside the app Surface */
+[data-radix-portal] {
+  color: var(--site-fg);
+}
