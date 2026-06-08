@@ -1,5 +1,6 @@
 import { useParams, useLocation, Link } from 'react-router-dom'
 import { Icon } from '@falcon/icons'
+import { homeTabPath } from '../../../data/constants'
 
 export const DetailsTeam = () => {
   const { teamID, configID } = useParams<{
@@ -15,7 +16,7 @@ export const DetailsTeam = () => {
       <nav className="mt-4 flex items-center gap-2 text-sm">
         <Icon color="current" icon="chevron-double-left" size="2xl" />
         <Link
-          to={`/team/${teamID}/tryyb`}
+          to={homeTabPath('team', Number(teamID))}
           className="opacity-70 hover:underline"
         >
           Back to Team Version Control

@@ -78,7 +78,7 @@ pnpm install
 pnpm dev
 ```
 
-Open http://localhost:4400/domain-manager/domain/551/tryyb
+Open http://localhost:4400/domain-manager/domain/551/home
 
 ## Updating UI from Spacedock
 

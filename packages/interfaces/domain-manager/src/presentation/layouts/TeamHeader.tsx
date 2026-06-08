@@ -22,7 +22,7 @@ import { useCurrentUser } from '@spacedock/chaincode'
 import { useParamNumber } from '@spacedock/use-param-number'
 import { useScreenSize } from '@domain/ui'
 import useTeamFromURL from '../../data/hooks/useTeamFromURL'
-import { DOMAIN_MANAGER_PATHS } from '../../data/constants'
+import { DOMAIN_MANAGER_PATHS, HOME_TAB_ROUTE, homeTabPath } from '../../data/constants'
 
 const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
 
@@ -69,8 +69,8 @@ const TeamHeader = (props: TeamHeaderProps) => {
     const tabs = [
       {
         label: IS_PORTFOLIO_DEMO ? 'HOME' : 'TRYYB',
-        id: 'tryyb',
-        to: `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/${props.teamID}/tryyb`,
+        id: HOME_TAB_ROUTE,
+        to: homeTabPath('team', props.teamID),
         order: 1,
         disabled: false,
       },
@@ -129,6 +129,12 @@ const TeamHeader = (props: TeamHeaderProps) => {
   }, [props.teamID, permissions])
 
   const [domainTeamDialog, setDomainTeamDialog] = useState<boolean>(false)
+
+  const openDomainPicker = React.useCallback(() => {
+    window.requestAnimationFrame(() => {
+      setDomainTeamDialog(true)
+    })
+  }, [])
   const [teamForPath, setTeamForPath] = useState<TytoData.Team | undefined>()
 
   useEffect(() => {
@@ -226,11 +232,7 @@ const TeamHeader = (props: TeamHeaderProps) => {
             <Button
               disabled={false}
               variant="shadow"
-              onClick={() => {
-                //// if (hasCreateTeam) {
-                setDomainTeamDialog(!domainTeamDialog)
-                //// }
-              }}
+              onClick={openDomainPicker}
             >
               Change Domain or Team
             </Button>
@@ -275,11 +277,7 @@ const TeamHeader = (props: TeamHeaderProps) => {
               <Button
                 disabled={false}
                 variant="shadow"
-                onClick={() => {
-                  //// if (hasCreateTeam) {
-                  setDomainTeamDialog(!domainTeamDialog)
-                  //// }
-                }}
+                onClick={openDomainPicker}
               >
                 Change Domain or Team
               </Button>
@@ -301,32 +299,74 @@ const TeamHeader = (props: TeamHeaderProps) => {
         )}
       </div>
 
-      {domainTeamDialog && (
+      {IS_PORTFOLIO_DEMO ? (
+        domainTeamDialog ? (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="demo-team-domain-picker-title"
+            className="fixed inset-0 z-[10050] flex items-center justify-center p-4"
+          >
+            <button
+              type="button"
+              aria-label="Close"
+              className="absolute inset-0 bg-black/50"
+              onClick={() => setDomainTeamDialog(false)}
+            />
+            <div className="bg-grayscale-900 relative z-10 flex max-h-[80vh] w-full max-w-lg flex-col rounded-lg border border-neutral-700 p-6 shadow-2xl">
+              <TextHeading id="demo-team-domain-picker-title" size={4} className="mb-4">
+                Choose Domain or Team
+              </TextHeading>
+              <ul className="flex flex-1 flex-col gap-2 overflow-y-auto">
+                {(teamsQuery.teams ?? []).map((team) => (
+                  <li key={team.teamID}>
+                    <button
+                      type="button"
+                      className="hover:bg-grayscale-800 focus:bg-grayscale-800 w-full rounded-md px-4 py-3 text-left transition-colors"
+                      onClick={() => {
+                        navigate(
+                          team.teamType === 'ocDOMAIN'
+                            ? homeTabPath('domain', team.teamID)
+                            : homeTabPath('team', team.teamID),
+                        )
+                        setDomainTeamDialog(false)
+                      }}
+                    >
+                      <span className="text-site-fg font-semibold">{team.name}</span>
+                      <span className="text-grayscale-500 ml-2 text-sm">
+                        {team.teamID}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 flex justify-end">
+                <Button variant="primary" onClick={() => setDomainTeamDialog(false)}>
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          </div>
+        ) : null
+      ) : (
         <Dialog
           maxWidth={isMobile ? 'base' : 'lg'}
           maxHeight={'screen'}
           open={domainTeamDialog}
           onOpenChange={setDomainTeamDialog}
           title="Choose Domain or Team"
-          modal={false}
+          closeOnInteractionOutside={false}
         >
           <div className={isMobile ? 'h-[80vh] overflow-auto' : 'h-[70vh]'}>
             <TeamTreeInput
               teams={teamsQuery.teams ?? []}
               isLoading={teamsQuery.isPending}
               onSelect={(teamID, teamType) => {
-                // // const selectedTeam = teamOptions.find(
-                // //   (t) => t.value === String(teamID),
-                // // )
                 if (teamID && teamType) {
                   if (teamType === 'ocDOMAIN') {
-                    navigate(
-                      `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/domain/${teamID}/tryyb`,
-                    )
+                    navigate(homeTabPath('domain', teamID))
                   } else {
-                    navigate(
-                      `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/${teamID}/tryyb`,
-                    )
+                    navigate(homeTabPath('team', teamID))
                   }
                 }
 
@@ -405,13 +445,21 @@ function getCurrentTab(pathname: string) {
   if (
     matchPath(
       {
-        path: `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/:teamID/tryyb`,
+        path: `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/:teamID/${HOME_TAB_ROUTE}`,
         end: false,
       },
       pathname,
-    ) != null
+    ) != null ||
+    (IS_PORTFOLIO_DEMO &&
+      matchPath(
+        {
+          path: `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/:teamID/tryyb`,
+          end: false,
+        },
+        pathname,
+      ) != null)
   ) {
-    return 'tryyb'
+    return HOME_TAB_ROUTE
   } else if (
     matchPath(
       {
@@ -473,7 +521,7 @@ function getCurrentTab(pathname: string) {
   ) {
     return 'services'
   }
-  return 'tryyb'
+  return HOME_TAB_ROUTE
 }
 
 export default TeamHeader

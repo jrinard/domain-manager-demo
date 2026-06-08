@@ -17,7 +17,8 @@ Run these in the terminal:
 ```bash
 source .profile-addons
 pni
-pxr tryyb:start
+pnpm dev
+# pxr tryyb:start
 ```
 
 For this standalone portfolio repo:
@@ -32,9 +33,7 @@ pnpm install
 pnpm dev
 ```
 
-→ http://localhost:4400/domain-manager/domain/551/tryyb (Home tab)
-
-The URL path still uses `tryyb` internally; the UI labels that tab **Home**.
+→ http://localhost:4400/domain-manager/domain/551/home
 
 ## Versions
 
@@ -51,7 +50,7 @@ The URL path still uses `tryyb` internally; the UI labels that tab **Home**.
 
 ## Technical summary
 
-React 18 SPA built with Vite and TypeScript. Styling uses Tailwind CSS and Radix UI primitives. Data fetching goes through TanStack Query; API calls are mocked in the browser with MSW (no backend required). The Domain Manager UI lives under `packages/interfaces/domain-manager/` and is wired into a thin demo shell in `src/`. React Router handles tab and domain routing. The demo runs on port 4400 with in-memory mock data for **Columbia Bank** (domain 551).
+React 18 SPA built with Vite and TypeScript. Styling uses Tailwind CSS and Radix UI primitives. Data fetching goes through TanStack Query; API calls are mocked in the browser with MSW (no backend required). The Domain Manager UI lives under `packages/interfaces/domain-manager/` and is wired into a thin demo shell in `src/`. React Router handles tab and domain routing. The demo runs on port 4400 with in-memory mock data for **Columbia Bank** (551) plus two sample domains (**Acme Learning Co.**, **Northwind Academy**).
 
 ## Reference
 

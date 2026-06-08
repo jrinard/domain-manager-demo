@@ -1,15 +1,29 @@
 import * as React from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useLocation, useParams } from 'react-router-dom'
 import { SkeletonContainer, TextHeading } from '@spacedock/falcon-ui'
+import { HOME_TAB_ROUTE } from '../../data/constants'
 import { TryybVersionControlWrapper } from '../pages/version-control/TryybVersionControlWrapper'
 import { MenuVersionControlWrapper } from '../pages/version-control/MenuVersionControlWrapper'
 
+const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
+
 export const TeamTabContent = () => {
   const { teamID, teamTab } = useParams<{ teamID: string; teamTab: string }>()
+  const location = useLocation()
   const id = Number(teamID)
-  const tab = teamTab || 'tryyb'
+  const tab = teamTab || HOME_TAB_ROUTE
+
+  if (IS_PORTFOLIO_DEMO && teamTab === 'tryyb') {
+    return (
+      <Navigate
+        to={location.pathname.replace('/tryyb', '/home')}
+        replace
+      />
+    )
+  }
 
   switch (tab) {
+    case HOME_TAB_ROUTE:
     case 'tryyb':
       return <TryybVersionControlWrapper domainID={id} />
     case 'menu':

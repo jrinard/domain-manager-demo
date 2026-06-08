@@ -163,6 +163,39 @@ export const DEMO_TRYYB_DRAFT_CONFIG: HomeConfig = DEMO_COLUMBIA_TRYYB_CONFIG
 /** @deprecated Use DEMO_TRYYB_LIVE_CONFIG */
 export const DEMO_HOME_CONFIG: HomeConfig = DEMO_TRYYB_LIVE_CONFIG
 
+const DEMO_HOME_BACKGROUND_STYLES = {
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+} as const
+
+function createDemoDefaultHomeConfig(
+  domainId: string,
+  backgroundImageUrl: string,
+): HomeConfig {
+  return {
+    ...DEFAULT_CONFIGS.HOME_CONFIG,
+    id: domainId,
+    layout: {
+      ...DEFAULT_CONFIGS.HOME_CONFIG.layout,
+      background_image_url: backgroundImageUrl,
+      background_image_styles: { ...DEMO_HOME_BACKGROUND_STYLES },
+    },
+  }
+}
+
+/** Acme Learning Co. — default welcome layout with Red Star background. */
+export const DEMO_ACME_HOME_CONFIG: HomeConfig = createDemoDefaultHomeConfig(
+  '1001',
+  demoAssets.bg.redTopDown,
+)
+
+/** Northwind Academy — default welcome layout with Prism background. */
+export const DEMO_NORTHWIND_HOME_CONFIG: HomeConfig = createDemoDefaultHomeConfig(
+  '1002',
+  demoAssets.bg.tryybBack,
+)
+
 export const DEMO_MASTERY_CONFIG: HomeConfig = {
   ...DEFAULT_CONFIGS.MASTERY_CONFIG,
   id: 'demo-mastery-001',

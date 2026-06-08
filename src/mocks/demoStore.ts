@@ -2,6 +2,8 @@ import type { DomainUI } from '@spacedock/manifest'
 import {
   DEMO_MASTERY_CONFIG,
   DEMO_MENU_CONFIG,
+  DEMO_ACME_HOME_CONFIG,
+  DEMO_NORTHWIND_HOME_CONFIG,
   DEMO_TRYYB_LIVE_CONFIG,
 } from './fixtures/configBodies'
 import { DEMO_TRYYB_LIBRARY_IMAGES } from './fixtures/demoLibraryImages'
@@ -25,7 +27,22 @@ export const DEMO_DOMAINS: DemoDomain[] = [
     name: DEFAULT_DEMO_DOMAIN_NAME,
     onCourseURL: 'http://localhost:4400',
   },
+  {
+    teamID: 1001,
+    name: 'Acme Learning Co.',
+    onCourseURL: 'http://localhost:4400',
+  },
+  {
+    teamID: 1002,
+    name: 'Northwind Academy',
+    onCourseURL: 'http://localhost:4400',
+  },
 ]
+
+export const DEMO_DOMAIN_IDS = new Set(DEMO_DOMAINS.map((d) => d.teamID))
+
+export const ACME_DEMO_DOMAIN_ID = 1001
+export const NORTHWIND_DEMO_DOMAIN_ID = 1002
 
 const DEMO_MEMBER = { memberID: 9001, memberName: 'Portfolio Demo User' }
 
@@ -90,6 +107,19 @@ function tryybConfigBody(): string {
   return JSON.stringify(DEMO_TRYYB_LIVE_CONFIG)
 }
 
+function homeConfigBodyForDomain(domainID: number): string {
+  if (domainID === DEFAULT_DEMO_DOMAIN_ID) {
+    return tryybConfigBody()
+  }
+  if (domainID === ACME_DEMO_DOMAIN_ID) {
+    return JSON.stringify(DEMO_ACME_HOME_CONFIG)
+  }
+  if (domainID === NORTHWIND_DEMO_DOMAIN_ID) {
+    return JSON.stringify(DEMO_NORTHWIND_HOME_CONFIG)
+  }
+  return JSON.stringify(DEMO_TRYYB_LIVE_CONFIG)
+}
+
 function buildFullConfig(opts: {
   guid: string
   domainID: number
@@ -149,28 +179,35 @@ function seedConfigs() {
   for (const domain of DEMO_DOMAINS) {
     const id = domain.teamID
     const types: { type: ConfigType; slug: string; label: string }[] = [
-      { type: 'ocTRYYBSTART', slug: 'tryyb', label: 'HOME' },
+      { type: 'ocTRYYBSTART', slug: 'home', label: 'HOME' },
       { type: 'ocTRYYBTOPMENU', slug: 'menu', label: 'Top Menu' },
       { type: 'ocMASTERYSTART', slug: 'mastery', label: 'Mastery Home' },
     ]
 
     for (const { type, slug, label } of types) {
-      const isTryyb = type === 'ocTRYYBSTART'
-      const liveModified = daysAgo(isTryyb ? 14 : 7)
-      const draftModified = daysAgo(isTryyb ? 2 : 3)
-      const liveCreated = daysAgo(isTryyb ? 30 : 14)
+      const isHome = type === 'ocTRYYBSTART'
+      const isColumbia = id === DEFAULT_DEMO_DOMAIN_ID
+      const liveModified = daysAgo(isHome ? 14 : 7)
+      const draftModified = daysAgo(isHome ? 2 : 3)
+      const liveCreated = daysAgo(isHome ? 30 : 14)
 
       configs.set(`demo-${id}-${slug}-live`, buildFullConfig({
         guid: `demo-${id}-${slug}-live`,
         domainID: id,
         configType: type,
         activeStatus: 'ocENABLED',
-        configName: isTryyb ? 'Columbia Bank Live Home' : `${label} (Live)`,
-        configDescription: isTryyb
-          ? 'Columbia Bank homepage — banners, quick links, and footer.'
+        configName: isHome
+          ? isColumbia
+            ? 'Columbia Bank Live Home'
+            : `${domain.name} Live Home`
+          : `${label} (Live)`,
+        configDescription: isHome
+          ? isColumbia
+            ? 'Columbia Bank homepage — banners, quick links, and footer.'
+            : `${domain.name} homepage (demo).`
           : `Production ${label.toLowerCase()} for ${domain.name}`,
-        mainBody: isTryyb ? tryybConfigBody() : undefined,
-        libraryImages: isTryyb ? DEMO_TRYYB_LIBRARY_IMAGES : undefined,
+        mainBody: isHome ? homeConfigBodyForDomain(id) : undefined,
+        libraryImages: isHome && isColumbia ? DEMO_TRYYB_LIBRARY_IMAGES : undefined,
         createdDate: liveCreated,
         modifiedDate: liveModified,
       }))
@@ -180,16 +217,22 @@ function seedConfigs() {
         domainID: id,
         configType: type,
         activeStatus: 'ocDRAFT',
-        configName: isTryyb ? 'Columbia Bank Draft Home' : `${label} (Draft)`,
-        configDescription: isTryyb
-          ? 'Columbia Bank homepage draft — same layout as live for preview.'
+        configName: isHome
+          ? isColumbia
+            ? 'Columbia Bank Draft Home'
+            : `${domain.name} Draft Home`
+          : `${label} (Draft)`,
+        configDescription: isHome
+          ? isColumbia
+            ? 'Columbia Bank homepage draft — same layout as live for preview.'
+            : `${domain.name} homepage draft (demo).`
           : `Work in progress — ${domain.name}`,
-        authorNote: isTryyb
+        authorNote: isHome && isColumbia
           ? 'Columbia Bank demo layout with local section images.'
           : undefined,
-        mainBody: isTryyb ? tryybConfigBody() : undefined,
-        libraryImages: isTryyb ? DEMO_TRYYB_LIBRARY_IMAGES : undefined,
-        createdDate: daysAgo(isTryyb ? 5 : 4),
+        mainBody: isHome ? homeConfigBodyForDomain(id) : undefined,
+        libraryImages: isHome && isColumbia ? DEMO_TRYYB_LIBRARY_IMAGES : undefined,
+        createdDate: daysAgo(isHome ? 5 : 4),
         modifiedDate: draftModified,
       }))
     }
@@ -199,10 +242,10 @@ function seedConfigs() {
 seedConfigs()
 
 export function getDemoTeamsByFunction() {
-  const rootDomain = {
+  return DEMO_DOMAINS.map((d) => ({
     level: 1,
-    iPath: ',551,',
-    parentID: 551,
+    iPath: `,${d.teamID},`,
+    parentID: 0,
     isAbove: false,
     isBelow: true,
     isDirect: true,
@@ -210,48 +253,22 @@ export function getDemoTeamsByFunction() {
     isCascade: false,
     isCascadeInherited: false,
     parentNamePath: '\t',
-    isTeamToolsConfig: true,
-    teamDesc: 'Columbia Bank portfolio demo domain',
+    isTeamToolsConfig: d.teamID === DEFAULT_DEMO_DOMAIN_ID,
+    teamDesc:
+      d.teamID === DEFAULT_DEMO_DOMAIN_ID
+        ? 'Columbia Bank portfolio demo domain'
+        : 'Portfolio demo domain',
     teamType: 'ocDOMAIN' as const,
-    teamID: DEFAULT_DEMO_DOMAIN_ID,
+    teamID: d.teamID,
     profileImageID: 0,
     outsideType: '',
     outsideExpirationDate: '1900-01-01T00:00:00+00:00',
-    name: DEFAULT_DEMO_DOMAIN_NAME,
+    name: d.name,
     ocType: 'ocTEAM',
-    domainID: DEFAULT_DEMO_DOMAIN_ID,
+    domainID: d.teamID,
     subDomainParentNamePath: '\t',
     activeStatus: 'ocENABLED' as const,
-  }
-
-  const childDomains = DEMO_DOMAINS.filter((d) => d.teamID !== DEFAULT_DEMO_DOMAIN_ID).map(
-    (d, index) => ({
-      level: 2,
-      iPath: `,551,${d.teamID},`,
-      parentID: 551,
-      isAbove: false,
-      isBelow: true,
-      isDirect: true,
-      isLeader: false,
-      isCascade: false,
-      isCascadeInherited: false,
-      parentNamePath: `\t${DEFAULT_DEMO_DOMAIN_NAME}\t`,
-      isTeamToolsConfig: index === 0,
-      teamDesc: 'Portfolio demo domain',
-      teamType: 'ocDOMAIN' as const,
-      teamID: d.teamID,
-      profileImageID: 0,
-      outsideType: '',
-      outsideExpirationDate: '1900-01-01T00:00:00+00:00',
-      name: d.name,
-      ocType: 'ocTEAM',
-      domainID: d.teamID,
-      subDomainParentNamePath: '\t',
-      activeStatus: 'ocENABLED' as const,
-    }),
-  )
-
-  return [rootDomain, ...childDomains]
+  }))
 }
 
 export function getDemoTeam(teamID: number) {

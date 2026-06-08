@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useLocation, useParams } from 'react-router-dom'
 import { SkeletonContainer, TextHeading } from '@spacedock/falcon-ui'
+import { HOME_TAB_ROUTE } from '../../data/constants'
 import { TryybVersionControlWrapper } from '../pages/version-control/TryybVersionControlWrapper'
 import { MenuVersionControlWrapper } from '../pages/version-control/MenuVersionControlWrapper'
 import { MasteryVersionControlWrapper } from '../pages/version-control/MasteryVersionControlWrapper'
@@ -8,15 +9,28 @@ import ThemeEditor from '../pages/theme-editor'
 import { ImagesPage } from '../pages/images-page/ImagesPage'
 import { R3PermissionsPage } from '../pages/r3-permissions'
 
+const IS_PORTFOLIO_DEMO = import.meta.env.VITE_DOMAIN_MANAGER_DEMO === 'true'
+
 export const DomainTabContent = () => {
   const { domainID, domainTab } = useParams<{
     domainID: string
     domainTab: string
   }>()
+  const location = useLocation()
   const id = Number(domainID)
-  const tab = domainTab || 'tryyb' //Fallback to tryyb if no tab is chosen
+  const tab = domainTab || HOME_TAB_ROUTE
+
+  if (IS_PORTFOLIO_DEMO && domainTab === 'tryyb') {
+    return (
+      <Navigate
+        to={location.pathname.replace('/tryyb', '/home')}
+        replace
+      />
+    )
+  }
 
   switch (tab) {
+    case HOME_TAB_ROUTE:
     case 'tryyb':
       return <TryybVersionControlWrapper domainID={id} />
     case 'menu':

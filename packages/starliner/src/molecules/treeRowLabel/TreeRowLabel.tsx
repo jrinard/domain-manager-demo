@@ -81,8 +81,23 @@ export interface RowLabelProps extends Omit<RowLabelBaseProps, 'icon'> {
     | 'both'
 }
 
-const TreeRowLabel = (props: RowLabelProps) => (
-  <RowLabelBase icon={iconForType(props.type, props.subType)} {...props} />
+const TreeRowLabel = ({
+  type,
+  subType,
+  title,
+  searchTerm,
+  secondaryMatches,
+  hideIcon,
+  size,
+}: RowLabelProps) => (
+  <RowLabelBase
+    icon={iconForType(type, subType)}
+    title={title}
+    searchTerm={searchTerm}
+    secondaryMatches={secondaryMatches}
+    hideIcon={hideIcon}
+    size={size}
+  />
 )
 
 function iconForType(

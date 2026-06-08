@@ -17,7 +17,7 @@ export const DialogOverlay = forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={mergeClasses(
-      'bg-site-bg state-open:animate-in state-closed:animate-out state-closed:fade-out-0 state-open:fade-in-0 fixed inset-0 z-50 backdrop-blur-sm',
+      'bg-black/50 state-open:animate-in state-closed:animate-out state-closed:fade-out-0 state-open:fade-in-0 fixed inset-0 z-50',
       className,
     )}
     {...props}
@@ -90,7 +90,9 @@ export const DialogContent = forwardRef<
         {...(closeOnInteractionOutside
           ? {}
           : {
-              onInteractOutside: (event) => event.preventDefault?.(),
+              onInteractOutside: (event) => event.preventDefault(),
+              onPointerDownOutside: (event) => event.preventDefault(),
+              onFocusOutside: (event) => event.preventDefault(),
             })}
         {...props}
       >

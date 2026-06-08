@@ -42,7 +42,7 @@ export const useDomainUIConfigurationsQuery = ({
 
   return {
     ...useQuery<ResponseProps, Error>({
-      enabled: !disabled,
+      enabled: !disabled && !!params.domainID,
       queryKey,
       queryFn: () => tytoClient.DomainUIConfigurations.get({ ...params }),
     }),

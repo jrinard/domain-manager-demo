@@ -21,7 +21,7 @@ import { LayoutBuilder } from '../../organisms/layoutBuilder'
 import { SecurityRoles } from '../../organisms/securityRoles'
 import { useHomeConfig, useEditableHomeConfig } from '../../../data/hooks/'
 import { useTeamAdminPermissions } from '../../../data/hooks'
-import { DOMAIN_MANAGER_PATHS } from '../../../data/constants'
+import { homeTabPath } from '../../../data/constants'
 import { useDomainQuery } from '@tyto/query'
 
 export const DetailsDomain = () => {
@@ -148,7 +148,7 @@ export const DetailsDomain = () => {
         <nav className="mt-2 flex items-center gap-2 px-2 py-2 text-sm text-gray-300">
           <Icon color="current" icon="chevron-double-left" size="2xl" />
           <Link
-            to={`${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/domain/${domainID}/tryyb`}
+            to={homeTabPath('domain', Number(domainID))}
             className="opacity-70 hover:underline"
           >
             <span className="hidden sm:inline">Back to Version Control</span>

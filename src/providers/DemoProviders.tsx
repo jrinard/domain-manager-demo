@@ -1,7 +1,7 @@
 import { PropsWithChildren, useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tyto/query'
 import axios from 'axios'
-import { SessionHandling } from '@spacedock/cargo-bay'
+import { SessionHandling, LOC_STOR, BROWSER_STORAGE_KEY_RING } from '@spacedock/cargo-bay'
 import { CurrentUserProvider } from '@spacedock/chaincode'
 import { Toaster } from '@spacedock/falcon-ui'
 import { MockTryybServicesProvider } from '@spacedock/tryyb-services'
@@ -15,7 +15,11 @@ let demoSessionSeeded = false
 /** Store once — never call clearActiveSession (it removes storage and retriggers useSession loops). */
 function seedDemoSession() {
   if (demoSessionSeeded) return
-  SessionHandling.storeSessionData(sessionPayload)
+  // Overwrite stale sessions so domainID always matches demoStore (551).
+  LOC_STOR.set(
+    BROWSER_STORAGE_KEY_RING.STORED_SESSIONS,
+    JSON.stringify([sessionPayload]),
+  )
   SessionHandling.setActiveSession(sessionPayload.sessionKey)
   demoSessionSeeded = true
 }

@@ -10,7 +10,7 @@ import {
 import { EnvironmentVariables } from '@spacedock/tricorder'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { DOMAIN_MANAGER_PATHS } from '../../../data/constants'
+import { homeTabPath } from '../../../data/constants'
 
 export const WelcomePage = () => {
   const currentUser = useCurrentUser()
@@ -21,8 +21,8 @@ export const WelcomePage = () => {
     if (currentUser?.teamRootID && currentUser?.domainID) {
       const target =
         currentUser.teamRootID === currentUser.domainID
-          ? `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/domain/${currentUser.teamRootID}/tryyb`
-          : `${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/${currentUser.teamRootID}/tryyb`
+          ? homeTabPath('domain', currentUser.teamRootID)
+          : homeTabPath('team', currentUser.teamRootID)
       navigate(target, { replace: true })
     }
   }, [currentUser?.teamRootID, currentUser?.domainID, navigate])
@@ -42,7 +42,7 @@ export const WelcomePage = () => {
           <TextBody>{currentUser?.userName}</TextBody>
         </div>
         <Link
-          to={`${DOMAIN_MANAGER_PATHS.BASE_ROUTE}/team/551/tryyb`}
+          to={homeTabPath('domain', 551)}
           className={ButtonVariants({ variant: 'primary' })}
         >
           <Label textType="navigation" className="cursor-pointer">
